@@ -308,8 +308,8 @@
 
 .feat-icon-wrap {
   width: 52px; height: 52px; border-radius: 13px;
-  background: var(--blue-l); display: grid;
-  place-items: center; font-size: 24px; margin-bottom: 20px;
+  background: var(--blue-l); color: var(--blue); display: grid;
+  place-items: center; margin-bottom: 20px;
 }
 
 .feat-title { font-size: 19px; font-weight: 700; color: var(--grey-1); margin-bottom: 12px; }
@@ -448,13 +448,13 @@
         </div>
         <div class="preview-body">
           <div class="prev-sidebar">
-            <div class="prev-sidebar-item active">📊 Dashboard</div>
-            <div class="prev-sidebar-item">📁 Documents</div>
-            <div class="prev-sidebar-item">🎯 Gap Checker</div>
-            <div class="prev-sidebar-item">🤖 Safety Case AI</div>
-            <div class="prev-sidebar-item">⏱ BAC Tracker</div>
-            <div class="prev-sidebar-item">👥 Team</div>
-            <div class="prev-sidebar-item">🏢 Portfolio</div>
+            <div class="prev-sidebar-item active"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard</div>
+            <div class="prev-sidebar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Documents</div>
+            <div class="prev-sidebar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Gap Checker</div>
+            <div class="prev-sidebar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg> Safety Case AI</div>
+            <div class="prev-sidebar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> BAC Tracker</div>
+            <div class="prev-sidebar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Team</div>
+            <div class="prev-sidebar-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg> Portfolio</div>
           </div>
           <div class="prev-main">
             <div class="prev-score-row">
@@ -535,28 +535,28 @@
 
     <div class="problem-grid">
       <div class="prob-item fade">
-        <div class="prob-icon">📂</div>
+        <div class="prob-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
         <div>
           <div class="prob-title">Documents are scattered</div>
           <div class="prob-body">Safety documents are stored across email, SharePoint, and paper files — with no version control, no structure, and no audit trail.</div>
         </div>
       </div>
       <div class="prob-item fade d1">
-        <div class="prob-icon">🔍</div>
+        <div class="prob-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
         <div>
           <div class="prob-title">Hard to track missing items</div>
           <div class="prob-body">There is no easy way to know which documents are missing, which are expiring, or which gaps create the most serious legal risk.</div>
         </div>
       </div>
       <div class="prob-item fade d2">
-        <div class="prob-icon">⚠️</div>
+        <div class="prob-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
         <div>
           <div class="prob-title">Risk of non-compliance</div>
           <div class="prob-body">Non-compliance carries personal criminal liability and unlimited financial penalties for Accountable Persons and directors.</div>
         </div>
       </div>
       <div class="prob-item fade d3">
-        <div class="prob-icon">⏰</div>
+        <div class="prob-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div>
           <div class="prob-title">Time-consuming reports</div>
           <div class="prob-body">Safety Case Reports require qualified engineers charging up to £8,000 per building. Most organisations cannot afford this at scale.</div>
@@ -660,19 +660,19 @@
 
     <div class="features-grid">
       <div class="feat-card fade">
-        <div class="feat-icon-wrap">🤖</div>
+        <div class="feat-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg></div>
         <h3 class="feat-title">AI Safety Case Generator</h3>
         <p class="feat-body">Generates a compliant Safety Case Report draft using your building's uploaded data. Fine-tuned on BSA 2022, BSR guidance, PAS 9980:2022, and BS 9991. Mandatory human review before use.</p>
         <span class="feat-tag">AI-Powered</span>
       </div>
       <div class="feat-card fade d1">
-        <div class="feat-icon-wrap">✅</div>
+        <div class="feat-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
         <h3 class="feat-title">AI Compliance Checker</h3>
         <p class="feat-body">Analyses uploaded documents for regulatory adequacy — not just whether they exist, but whether they meet the specific BSR requirements. Flags gaps with explanations and recommended actions.</p>
         <span class="feat-tag">AI-Powered</span>
       </div>
       <div class="feat-card fade d2">
-        <div class="feat-icon-wrap">🎯</div>
+        <div class="feat-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <h3 class="feat-title">AI Risk Detection</h3>
         <p class="feat-body">Identifies emerging safety risks across your building data and maintenance records. Prioritises by severity using building-specific parameters including height, cladding type, and occupancy.</p>
         <span class="feat-tag">AI-Powered</span>

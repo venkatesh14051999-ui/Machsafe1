@@ -6,16 +6,13 @@
 <title>Contact — MachSafe</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.page-hero { padding:80px 0 60px; border-bottom:1px solid var(--grey-5); }
-.page-hero h1 { font-size:clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1.5px; margin-bottom:14px; }
-.page-hero p  { font-size:18px; color:var(--grey-2); max-width:520px; line-height:1.7; }
-
 .contact-section { padding:80px 0; }
 
-.contact-grid { display:grid; grid-template-columns:1fr 420px; gap:80px; align-items:start; }
+.contact-grid { display:grid; grid-template-columns:1fr 380px; gap:64px; align-items:start; }
 
 .contact-form-card {
   border:1.5px solid var(--grey-5); border-radius:20px; padding:48px; background:white;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
 }
 
 .contact-form-card h2 { font-size:24px; font-weight:800; color:var(--grey-1); margin-bottom:6px; }
@@ -30,20 +27,33 @@
   font-family:inherit; transition:all 0.15s;
   margin-top:8px;
 }
-.submit-btn:hover { background:var(--blue-d); }
+.submit-btn:hover { background:var(--blue-d); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.3); }
 
-.contact-info { display:flex; flex-direction:column; gap:20px; }
+.contact-info { display:flex; flex-direction:column; gap:16px; }
 
 .info-card {
   padding:28px; border:1px solid var(--grey-5); border-radius:14px;
-  background:var(--grey-6); transition:all 0.2s;
+  background:white; transition:all 0.2s;
 }
-.info-card:hover { border-color:var(--blue); background:white; }
+.info-card:hover { border-color:var(--blue); box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
 
-.info-icon { font-size:24px; margin-bottom:12px; }
+.info-icon {
+  width: 42px; height: 42px; margin-bottom: 14px;
+  background: var(--blue-l); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue);
+}
 .info-title { font-size:15px; font-weight:700; color:var(--grey-1); margin-bottom:6px; }
-.info-body { font-size:14px; color:var(--grey-2); line-height:1.6; }
+.info-body { font-size:14px; color:var(--grey-2); line-height:1.65; }
 .info-link { color:var(--blue); font-weight:600; font-size:14px; }
+
+.info-card.highlight {
+  background: var(--blue); border-color: var(--blue);
+  box-shadow: 0 8px 28px rgba(37,99,235,0.25);
+}
+.info-card.highlight .info-icon { background: rgba(255,255,255,0.15); color: white; }
+.info-card.highlight .info-title { color: white; }
+.info-card.highlight .info-body { color: rgba(255,255,255,0.78); }
 
 .success-msg {
   display:none; padding:16px 20px;
@@ -55,6 +65,7 @@
 @media(max-width:768px) {
   .contact-grid { grid-template-columns:1fr; }
   .form-row { grid-template-columns:1fr; }
+  .contact-form-card { padding: 32px 24px; }
 }
 </style>
 </head>
@@ -129,55 +140,62 @@
             <textarea class="form-textarea" placeholder="Tell us about your compliance challenges or what you would like to see in the demo..."></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">Send message →</button>
+          <button type="submit" class="submit-btn">Send message &rarr;</button>
 
           <div class="success-msg" id="success">
-            ✓ Message sent. We will be in touch within one business day.
+            &#10003; Message sent. We will be in touch within one business day.
           </div>
         </form>
       </div>
 
       <div class="contact-info fade d1">
+
         <div class="info-card">
-          <div class="info-icon">📧</div>
-          <div class="info-title">Email us directly</div>
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="info-title">Email us</div>
           <div class="info-body">
-            For general enquiries and support:<br>
-            <a href="mailto:support@machsafe.co.uk" class="info-link">support@machsafe.co.uk</a><br><br>
-            For the founder directly:<br>
-            <a href="mailto:venkateshs1405@gmail.com" class="info-link">venkateshs1405@gmail.com</a>
+            For all enquiries and support:<br>
+            <a href="mailto:support@machsafe.co.uk" class="info-link">support@machsafe.co.uk</a>
           </div>
         </div>
 
         <div class="info-card">
-          <div class="info-icon">📞</div>
-          <div class="info-title">Call us</div>
-          <div class="info-body">
-            Venkatesh Sethu · Founder & CEO<br>
-            <a href="tel:+447776913151" class="info-link">+44 7776 913151</a><br><br>
-            Monday to Friday · 9am to 6pm GMT
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>
           </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon">🏢</div>
           <div class="info-title">Company details</div>
           <div class="info-body">
             Mach Global Ltd<br>
             Trading as MachSafe<br>
-            Registered in England & Wales<br>
+            Registered in England &amp; Wales<br>
             ICO Registered Data Controller<br>
             machsafe.co.uk
           </div>
         </div>
 
-        <div class="info-card" style="background:var(--blue);border-color:var(--blue);">
-          <div class="info-icon">🚀</div>
-          <div class="info-title" style="color:white;">Free 90-day pilot</div>
-          <div class="info-body" style="color:rgba(255,255,255,0.75);">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="info-title">Response time</div>
+          <div class="info-body">
+            We respond to all enquiries within one business day.<br><br>
+            Monday to Friday &middot; 9am to 6pm GMT
+          </div>
+        </div>
+
+        <div class="info-card highlight">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m3.5 11.5 1 7.5 7.5 1 8-8c2-2 2-5.5 0-7.5s-5.5-2-7.5 0z"/><path d="m14.5 5.5 5 5"/></svg>
+          </div>
+          <div class="info-title">Free 90-day pilot</div>
+          <div class="info-body">
             We are currently offering a free 90-day pilot to housing associations and Accountable Persons. Full Professional tier access. No credit card required. Select "Apply for early access" in the form.
           </div>
         </div>
+
       </div>
 
     </div>

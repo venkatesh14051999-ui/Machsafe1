@@ -6,49 +6,35 @@
 <title>About — MachSafe</title>
 <link rel="stylesheet" href="style.css">
 <style>
-.page-hero { padding:80px 0 60px; border-bottom:1px solid var(--grey-5); }
-.page-hero h1 { font-size:clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1.5px; margin-bottom:14px; }
-.page-hero p  { font-size:18px; color:var(--grey-2); max-width:580px; line-height:1.75; }
-
 .about-section { padding:80px 0; border-bottom:1px solid var(--grey-5); }
 .about-section:last-of-type { border-bottom:none; }
 
 .mv-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px; }
-.mv-card { padding:40px; border:1.5px solid var(--grey-5); border-radius:16px; }
-.mv-card:hover { border-color:var(--blue); }
-.mv-icon { font-size:32px; margin-bottom:16px; }
+.mv-card { padding:40px; border:1.5px solid var(--grey-5); border-radius:16px; transition: all 0.2s; }
+.mv-card:hover { border-color:var(--blue); box-shadow: 0 8px 32px rgba(37,99,235,0.08); }
+.mv-icon {
+  width: 52px; height: 52px; margin-bottom: 18px;
+  background: var(--blue-l); border-radius: 13px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue);
+}
 .mv-title { font-size:20px; font-weight:800; color:var(--grey-1); margin-bottom:12px; }
 .mv-body { font-size:15px; color:var(--grey-2); line-height:1.75; }
 
-.founder-card {
-  display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start;
-  padding:48px; border:1.5px solid var(--grey-5); border-radius:20px;
-  margin-top:48px; background:var(--grey-6);
-}
-
-.founder-avatar {
-  width:96px; height:96px; border-radius:20px;
-  background:var(--blue); display:grid; place-items:center;
-  font-size:36px; font-weight:800; color:white; flex-shrink:0;
-}
-
-.founder-name { font-size:24px; font-weight:800; color:var(--grey-1); margin-bottom:4px; }
-.founder-role { font-size:14px; color:var(--blue); font-weight:600; margin-bottom:16px; }
-.founder-bio { font-size:15px; color:var(--grey-2); line-height:1.75; margin-bottom:20px; }
-
-.creds { display:flex; flex-direction:column; gap:8px; }
-.cred { display:flex; align-items:flex-start; gap:9px; font-size:14px; color:var(--grey-2); }
-.cred::before { content:'→'; color:var(--blue); font-weight:700; flex-shrink:0; }
-
 .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:48px; }
-.value-item { padding:32px; border:1px solid var(--grey-5); border-radius:14px; }
-.value-icon { font-size:28px; margin-bottom:14px; }
+.value-item { padding:32px; border:1px solid var(--grey-5); border-radius:14px; background: white; transition: all 0.2s; }
+.value-item:hover { border-color: var(--grey-4); box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+.value-icon {
+  width: 48px; height: 48px; margin-bottom: 16px;
+  background: var(--blue-l); border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue);
+}
 .value-title { font-size:17px; font-weight:700; color:var(--grey-1); margin-bottom:8px; }
 .value-body { font-size:14px; color:var(--grey-2); line-height:1.65; }
 
 @media(max-width:768px) {
   .mv-grid { grid-template-columns:1fr; }
-  .founder-card { grid-template-columns:1fr; }
   .values-grid { grid-template-columns:1fr; }
 }
 </style>
@@ -68,48 +54,24 @@
 <!-- MISSION & VISION -->
 <section class="about-section">
   <div class="wrap">
-    <div class="eyebrow fade">Mission & Vision</div>
+    <div class="eyebrow fade">Mission &amp; Vision</div>
     <h2 class="section-title fade">Why MachSafe exists.</h2>
     <p class="section-sub fade" style="margin-bottom:0;">72 people died in the Grenfell Tower fire in 2017 because building safety information was not properly managed. MachSafe was created to ensure this never happens again.</p>
 
     <div class="mv-grid">
       <div class="mv-card fade">
-        <div class="mv-icon">🎯</div>
+        <div class="mv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
         <div class="mv-title">Our Mission</div>
         <div class="mv-body">To make Building Safety Act 2022 compliance accessible, affordable, and continuous for every Accountable Person managing a higher-risk residential building in England — protecting residents' lives through better compliance tools.</div>
       </div>
       <div class="mv-card fade d1">
-        <div class="mv-icon">🔭</div>
+        <div class="mv-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
         <div class="mv-title">Our Vision</div>
         <div class="mv-body">To become the default compliance infrastructure for building safety regulation in the United Kingdom and internationally — the platform every Accountable Person relies on to demonstrate their building is safe.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="about-section" style="background:white;">
-  <div class="wrap">
-    <div class="eyebrow fade">The Founder</div>
-    <h2 class="section-title fade">Built by someone who knows<br>the regulation inside out.</h2>
-
-    <div class="founder-card fade">
-      <div class="founder-avatar">VS</div>
-      <div>
-        <div class="founder-name">Venkatesh Sethu</div>
-        <div class="founder-role">Founder & CEO, MachSafe</div>
-        <p class="founder-bio">
-          Venkatesh identified the MachSafe opportunity during his MSc in Construction Engineering Management at the University of East London in 2023–2024, where he studied the Building Safety Act 2022 directly during the period it came into force. His research revealed that 12,500 occupied higher-risk residential buildings in England now face legally mandated compliance obligations with no adequate digital solution available.
-        </p>
-        <p class="founder-bio">
-          Before founding MachSafe, Venkatesh gained practical engineering and compliance experience across multiple regulated environments — from a ₹1,520 million regulated infrastructure project in India to managing health and safety compliance at a regulated petroleum retail site in London.
-        </p>
-        <div class="creds">
-          <div class="cred">First Class MSc Construction Engineering Management — University of East London, 2024</div>
-          <div class="cred">BEng Civil Engineering — Tamilnadu College of Technology, 2020</div>
-          <div class="cred">Junior Engineer — ECO Protection Engineers, Chennai (₹1,520M regulated infrastructure project)</div>
-          <div class="cred">Assistant Manager (Compliance) — Shell MFG Petrol Station, London</div>
-        </div>
       </div>
     </div>
   </div>
@@ -123,17 +85,23 @@
 
     <div class="values-grid">
       <div class="value-item fade">
-        <div class="value-icon">🛡️</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
         <div class="value-title">Safety First</div>
         <div class="value-body">Every feature we build is in service of one goal — ensuring that people living in high-rise residential buildings are protected by properly managed safety records.</div>
       </div>
       <div class="value-item fade d1">
-        <div class="value-icon">🎯</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>
+        </div>
         <div class="value-title">Honest AI</div>
         <div class="value-body">Our AI is a tool for human experts, not a replacement for them. Every AI output is clearly labelled as a draft requiring human review and approval before use.</div>
       </div>
       <div class="value-item fade d2">
-        <div class="value-icon">🔐</div>
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
         <div class="value-title">Trust Through Transparency</div>
         <div class="value-body">We maintain complete transparency about how MachSafe works, what data we hold, and how it is protected. Compliance professionals deserve a platform they can trust completely.</div>
       </div>
