@@ -26,7 +26,7 @@ ul { list-style: none; }
   --white:   #FFFFFF;
   --green:   #16A34A;
   --radius:  10px;
-  --max:     1080px;
+  --max:     1200px;
 }
 
 /* ── LAYOUT ── */
@@ -199,4 +199,17 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .page-hero { padding: 60px 0 48px; }
+}
+
+/* ── DESKTOP ── */
+@media(min-width: 1280px) {
+  .wrap { padding: 0 48px; }
+  .nav-inner { height: 68px; }
+  .nav-links { gap: 6px; }
+  .nav-links a { padding: 8px 16px; font-size: 14.5px; }
+  .section-title { font-size: clamp(32px, 2.8vw, 48px); }
+  .section-sub { font-size: 18px; max-width: 640px; margin-bottom: 64px; }
+  .page-hero { padding: 100px 0 80px; }
+  .page-hero h1 { font-size: clamp(40px, 3.5vw, 58px); }
+  .footer-grid { gap: 56px; }
 }
