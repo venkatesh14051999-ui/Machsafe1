@@ -16,7 +16,7 @@ function getNav(active) {
     <div class="wrap">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <div class="nav-logo-m">M</div>
+          <svg width="30" height="31" viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="22" height="22" rx="5" fill="#0D1B3E"/><rect x="26" y="0" width="22" height="22" rx="5" fill="#2563EB"/><rect x="0" y="28" width="22" height="22" rx="5" fill="#1E40AF"/><rect x="26" y="30" width="22" height="22" rx="5" fill="#0D1B3E"/><rect x="20" y="20" width="8" height="8" rx="2" fill="#60A5FA"/></svg>
           Mach<span>Safe</span>
         </a>
         <div class="nav-links">
@@ -36,7 +36,7 @@ function getFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo" style="display:inline-flex;">
-            <div class="nav-logo-m">M</div>
+            <svg width="30" height="31" viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="22" height="22" rx="5" fill="#0D1B3E"/><rect x="26" y="0" width="22" height="22" rx="5" fill="#2563EB"/><rect x="0" y="28" width="22" height="22" rx="5" fill="#1E40AF"/><rect x="26" y="30" width="22" height="22" rx="5" fill="#0D1B3E"/><rect x="20" y="20" width="8" height="8" rx="2" fill="#60A5FA"/></svg>
             Mach<span>Safe</span>
           </a>
           <p>AI-assisted building safety compliance for the Building Safety Act 2022. Protecting residents across England.</p>
