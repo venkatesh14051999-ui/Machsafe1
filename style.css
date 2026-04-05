@@ -43,10 +43,12 @@ ul { list-style: none; }
   height: 62px;
 }
 .nav-logo {
-  display: flex; align-items: center; gap: 9px;
-  font-size: 17px; font-weight: 700; color: white;
+  display: flex; align-items: center; gap: 10px;
+  font-size: 17px; font-weight: 700; color: white; letter-spacing: 0.01em;
 }
 .nav-logo span { color: #93c5fd; font-weight: 500; }
+.site-footer .nav-logo { color: var(--grey-1); }
+.site-footer .nav-logo span { color: var(--blue); }
 .nav-links {
   display: flex; align-items: center; gap: 4px;
 }
