@@ -95,7 +95,8 @@
         <h2>Send us a message</h2>
         <p>Fill in your details and we will get back to you within 24 hours.</p>
 
-        <form onsubmit="handleContact(event)">
+        <form action="https://formspree.io/f/xlgoagzk" method="POST" onsubmit="handleContact(event)">
+          <input type="hidden" name="_subject" value="New MachSafe Enquiry">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">First name *</label>
