@@ -46,12 +46,6 @@ ul { list-style: none; }
   display: flex; align-items: center; gap: 9px;
   font-size: 17px; font-weight: 700; color: white;
 }
-.nav-logo-m {
-  width: 32px; height: 32px; border-radius: 8px;
-  background: var(--blue); color: white;
-  display: grid; place-items: center;
-  font-size: 15px; font-weight: 800;
-}
 .nav-logo span { color: #93c5fd; font-weight: 500; }
 .nav-links {
   display: flex; align-items: center; gap: 4px;
