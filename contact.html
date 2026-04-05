@@ -56,12 +56,6 @@
 .info-card.highlight .info-title { color: white; }
 .info-card.highlight .info-body { color: rgba(255,255,255,0.78); }
 
-.success-msg {
-  display:none; padding:16px 20px;
-  background:#F0FDF4; border:1px solid #BBF7D0;
-  border-radius:10px; color:#166534;
-  font-size:14px; font-weight:600; margin-top:16px;
-}
 
 @media(min-width:1200px) {
   .contact-section { padding: 100px 0; }
@@ -95,7 +89,7 @@
         <h2>Send us a message</h2>
         <p>Fill in your details and we will get back to you within 24 hours.</p>
 
-        <form action="https://formspree.io/f/xlgoagzk" method="POST" onsubmit="handleContact(event)">
+        <form action="https://formspree.io/f/xlgoagzk" method="POST">
           <input type="hidden" name="_subject" value="New MachSafe Enquiry">
           <div class="form-row">
             <div class="form-group">
@@ -147,11 +141,7 @@
             <textarea class="form-textarea" placeholder="Tell us about your compliance challenges or what you would like to see in the demo..."></textarea>
           </div>
 
-          <button type="submit" class="submit-btn">Send Message &rarr;</button>
-
-          <div class="success-msg" id="success">
-            &#10003; Message sent. We will be in touch within one business day.
-          </div>
+          <button type="submit" class="submit-btn">Send message →</button>
         </form>
       </div>
 
@@ -209,14 +199,6 @@
   </div>
 </section>
 
-<script>
-function handleContact(e) {
-  e.preventDefault();
-  document.getElementById('success').style.display = 'block';
-  e.target.querySelector('.submit-btn').textContent = '✓ Message sent';
-  e.target.querySelector('.submit-btn').style.background = 'var(--green)';
-}
-</script>
 <script>document.write(getFooter());</script>
 </body>
 </html>
