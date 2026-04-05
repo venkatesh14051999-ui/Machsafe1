@@ -34,6 +34,13 @@
 .value-title { font-size:17px; font-weight:700; color:var(--grey-1); margin-bottom:8px; }
 .value-body { font-size:14px; color:var(--grey-2); line-height:1.65; }
 
+@media(min-width:1200px) {
+  .about-section { padding: 100px 0; }
+  .mv-grid { gap: 32px; }
+  .mv-card { padding: 48px; }
+  .values-grid { grid-template-columns: repeat(3,1fr); gap: 28px; }
+  .value-item { padding: 40px; }
+}
 @media(max-width:768px) {
   .mv-grid { grid-template-columns:1fr; }
   .values-grid { grid-template-columns:1fr; }
