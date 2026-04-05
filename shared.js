@@ -44,17 +44,17 @@ function getFooter() {
         <div class="footer-col">
           <h5>Product</h5>
           <ul>
-            <li><a href="product.html">Platform overview</a></li>
-            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="product.html">Platform Overview</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="pricing.html">Pricing</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Company</h5>
           <ul>
-            <li><a href="about.html">About us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="contact.html">Book a demo</a></li>
+            <li><a href="contact.html">Book a Demo</a></li>
           </ul>
         </div>
         <div class="footer-col">
