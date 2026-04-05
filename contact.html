@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — MachSafe</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { padding:80px 0 60px; border-bottom:1px solid var(--grey-5); }
+.page-hero h1 { font-size:clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1.5px; margin-bottom:14px; }
+.page-hero p  { font-size:18px; color:var(--grey-2); max-width:520px; line-height:1.7; }
+
+.contact-section { padding:80px 0; }
+
+.contact-grid { display:grid; grid-template-columns:1fr 420px; gap:80px; align-items:start; }
+
+.contact-form-card {
+  border:1.5px solid var(--grey-5); border-radius:20px; padding:48px; background:white;
+}
+
+.contact-form-card h2 { font-size:24px; font-weight:800; color:var(--grey-1); margin-bottom:6px; }
+.contact-form-card p  { font-size:14px; color:var(--grey-3); margin-bottom:32px; }
+
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+.submit-btn {
+  width:100%; padding:14px; border-radius:10px;
+  background:var(--blue); color:white; border:none;
+  font-size:16px; font-weight:700; cursor:pointer;
+  font-family:inherit; transition:all 0.15s;
+  margin-top:8px;
+}
+.submit-btn:hover { background:var(--blue-d); }
+
+.contact-info { display:flex; flex-direction:column; gap:20px; }
+
+.info-card {
+  padding:28px; border:1px solid var(--grey-5); border-radius:14px;
+  background:var(--grey-6); transition:all 0.2s;
+}
+.info-card:hover { border-color:var(--blue); background:white; }
+
+.info-icon { font-size:24px; margin-bottom:12px; }
+.info-title { font-size:15px; font-weight:700; color:var(--grey-1); margin-bottom:6px; }
+.info-body { font-size:14px; color:var(--grey-2); line-height:1.6; }
+.info-link { color:var(--blue); font-weight:600; font-size:14px; }
+
+.success-msg {
+  display:none; padding:16px 20px;
+  background:#F0FDF4; border:1px solid #BBF7D0;
+  border-radius:10px; color:#166534;
+  font-size:14px; font-weight:600; margin-top:16px;
+}
+
+@media(max-width:768px) {
+  .contact-grid { grid-template-columns:1fr; }
+  .form-row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('Contact'));</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h1>Get in touch.</h1>
+    <p>Request a demo, ask a question, or apply for early access. We respond to all enquiries within one business day.</p>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="contact-form-card fade">
+        <h2>Send us a message</h2>
+        <p>Fill in your details and we will get back to you within 24 hours.</p>
+
+        <form onsubmit="handleContact(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First name *</label>
+              <input class="form-input" type="text" placeholder="John" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last name *</label>
+              <input class="form-input" type="text" placeholder="Smith" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Work email *</label>
+            <input class="form-input" type="email" placeholder="john@housingassociation.org.uk" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Organisation</label>
+            <input class="form-input" type="text" placeholder="Your housing association or company">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">How many higher-risk buildings do you manage?</label>
+            <select class="form-select">
+              <option value="">Select range</option>
+              <option>1 – 5 buildings</option>
+              <option>6 – 20 buildings</option>
+              <option>21 – 50 buildings</option>
+              <option>51 – 100 buildings</option>
+              <option>100+ buildings</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">What can we help you with? *</label>
+            <select class="form-select" required>
+              <option value="">Select enquiry type</option>
+              <option>Request a demo</option>
+              <option>Apply for early access (free pilot)</option>
+              <option>General enquiry</option>
+              <option>Press or media</option>
+              <option>Partnership enquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" placeholder="Tell us about your compliance challenges or what you would like to see in the demo..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send message →</button>
+
+          <div class="success-msg" id="success">
+            ✓ Message sent. We will be in touch within one business day.
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-info fade d1">
+        <div class="info-card">
+          <div class="info-icon">📧</div>
+          <div class="info-title">Email us directly</div>
+          <div class="info-body">
+            For general enquiries and support:<br>
+            <a href="mailto:support@machsafe.co.uk" class="info-link">support@machsafe.co.uk</a><br><br>
+            For the founder directly:<br>
+            <a href="mailto:venkateshs1405@gmail.com" class="info-link">venkateshs1405@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <div class="info-title">Call us</div>
+          <div class="info-body">
+            Venkatesh Sethu · Founder & CEO<br>
+            <a href="tel:+447776913151" class="info-link">+44 7776 913151</a><br><br>
+            Monday to Friday · 9am to 6pm GMT
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🏢</div>
+          <div class="info-title">Company details</div>
+          <div class="info-body">
+            Mach Global Ltd<br>
+            Trading as MachSafe<br>
+            Registered in England & Wales<br>
+            ICO Registered Data Controller<br>
+            machsafe.co.uk
+          </div>
+        </div>
+
+        <div class="info-card" style="background:var(--blue);border-color:var(--blue);">
+          <div class="info-icon">🚀</div>
+          <div class="info-title" style="color:white;">Free 90-day pilot</div>
+          <div class="info-body" style="color:rgba(255,255,255,0.75);">
+            We are currently offering a free 90-day pilot to housing associations and Accountable Persons. Full Professional tier access. No credit card required. Select "Apply for early access" in the form.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function handleContact(e) {
+  e.preventDefault();
+  document.getElementById('success').style.display = 'block';
+  e.target.querySelector('.submit-btn').textContent = '✓ Message sent';
+  e.target.querySelector('.submit-btn').style.background = 'var(--green)';
+}
+</script>
+<script>document.write(getFooter());</script>
+</body>
+</html>

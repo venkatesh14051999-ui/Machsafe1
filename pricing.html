@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — MachSafe</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { padding:80px 0 60px; text-align:center; border-bottom:1px solid var(--grey-5); }
+.page-hero h1 { font-size:clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1.5px; margin-bottom:14px; }
+.page-hero p  { font-size:18px; color:var(--grey-2); margin:0 auto; max-width:480px; line-height:1.7; }
+
+.pricing-section { padding:80px 0; }
+
+.price-grid {
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;
+  max-width:960px; margin:0 auto 48px;
+}
+
+.p-card {
+  border:1.5px solid var(--grey-5); border-radius:20px; padding:40px 36px;
+  background:white; position:relative; transition:all 0.2s;
+}
+.p-card:hover { border-color:var(--grey-4); box-shadow:0 12px 40px rgba(0,0,0,0.08); transform:translateY(-2px); }
+
+.p-card.featured {
+  background:var(--grey-1); border-color:var(--grey-1);
+  box-shadow:0 20px 60px rgba(0,0,0,0.2);
+}
+
+.p-badge {
+  position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  background:var(--blue); color:white;
+  font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:5px 16px; border-radius:100px; white-space:nowrap;
+}
+
+.p-tier { font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue); margin-bottom:16px; }
+.p-card.featured .p-tier { color:rgba(255,255,255,0.5); }
+
+.p-price { font-size:52px; font-weight:800; letter-spacing:-2px; color:var(--grey-1); line-height:1; margin-bottom:6px; }
+.p-card.featured .p-price { color:white; }
+
+.p-period { font-size:14px; color:var(--grey-3); margin-bottom:28px; }
+.p-card.featured .p-period { color:rgba(255,255,255,0.4); }
+
+.p-divider { height:1px; background:var(--grey-5); margin-bottom:24px; }
+.p-card.featured .p-divider { background:rgba(255,255,255,0.1); }
+
+.p-features { list-style:none; display:flex; flex-direction:column; gap:11px; margin-bottom:32px; }
+.p-features li { display:flex; align-items:flex-start; gap:9px; font-size:14px; color:var(--grey-2); line-height:1.5; }
+.p-card.featured .p-features li { color:rgba(255,255,255,0.7); }
+.p-features li .chk { color:var(--green); font-weight:700; flex-shrink:0; margin-top:1px; }
+.p-card.featured .p-features li .chk { color:#34D399; }
+
+.p-btn {
+  display:block; text-align:center; padding:13px; border-radius:10px;
+  font-size:15px; font-weight:700; cursor:pointer; border:1.5px solid var(--grey-5);
+  color:var(--grey-1); background:white; font-family:inherit;
+  text-decoration:none; transition:all 0.15s;
+}
+.p-btn:hover { border-color:var(--grey-1); background:var(--grey-6); }
+.p-card.featured .p-btn { background:white; color:var(--grey-1); border-color:white; }
+.p-card.featured .p-btn:hover { background:var(--grey-6); }
+
+.p-note { font-size:12px; color:var(--grey-3); text-align:center; margin-top:10px; }
+
+.faq { padding:80px 0; background:var(--grey-6); }
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:860px; margin:48px auto 0; }
+.faq-item { background:white; border:1px solid var(--grey-5); border-radius:14px; padding:28px; }
+.faq-q { font-size:16px; font-weight:700; color:var(--grey-1); margin-bottom:10px; }
+.faq-a { font-size:14.5px; color:var(--grey-2); line-height:1.7; }
+
+@media(max-width:768px) {
+  .price-grid { grid-template-columns:1fr; max-width:420px; }
+  .faq-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('Pricing'));</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h1>Simple, transparent<br>per-building pricing.</h1>
+    <p>No setup fees. No long-term contracts. Pay per building, cancel anytime.</p>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="wrap">
+    <div class="price-grid">
+
+      <!-- FREE TRIAL -->
+      <div class="p-card">
+        <div class="p-tier">Free Trial</div>
+        <div class="p-price">£0</div>
+        <div class="p-period">90 days · no credit card</div>
+        <div class="p-divider"></div>
+        <ul class="p-features">
+          <li><span class="chk">✓</span> Full Professional tier access</li>
+          <li><span class="chk">✓</span> Up to 5 buildings</li>
+          <li><span class="chk">✓</span> All AI features included</li>
+          <li><span class="chk">✓</span> Onboarding support</li>
+          <li><span class="chk">✓</span> No commitment required</li>
+        </ul>
+        <a href="contact.html" class="p-btn">Start free trial</a>
+        <div class="p-note">No credit card required</div>
+      </div>
+
+      <!-- ESSENTIAL -->
+      <div class="p-card">
+        <div class="p-tier">Essential</div>
+        <div class="p-price">£79</div>
+        <div class="p-period">per building / per month</div>
+        <div class="p-divider"></div>
+        <ul class="p-features">
+          <li><span class="chk">✓</span> Golden Thread — 14 categories</li>
+          <li><span class="chk">✓</span> Compliance gap checker</li>
+          <li><span class="chk">✓</span> Document version control</li>
+          <li><span class="chk">✓</span> Immutable audit trail</li>
+          <li><span class="chk">✓</span> BAC status tracker</li>
+          <li><span class="chk">✓</span> Team management</li>
+          <li><span class="chk">✓</span> Dutyholder register</li>
+          <li><span class="chk">✓</span> Expiry alerts</li>
+        </ul>
+        <a href="contact.html" class="p-btn">Get started</a>
+        <div class="p-note">£948 per building per year</div>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="p-card featured">
+        <div class="p-badge">Most Popular</div>
+        <div class="p-tier">Professional</div>
+        <div class="p-price">£149</div>
+        <div class="p-period">per building / per month</div>
+        <div class="p-divider"></div>
+        <ul class="p-features">
+          <li><span class="chk">✓</span> Everything in Essential</li>
+          <li><span class="chk">✓</span> AI Safety Case Generator</li>
+          <li><span class="chk">✓</span> AI Compliance Checker</li>
+          <li><span class="chk">✓</span> AI Risk Detection</li>
+          <li><span class="chk">✓</span> Portfolio Dashboard</li>
+          <li><span class="chk">✓</span> Priority Support</li>
+        </ul>
+        <a href="contact.html" class="p-btn">Get started</a>
+        <div class="p-note" style="color:rgba(255,255,255,0.3);">£1,788 per building per year</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;">
+      <div style="display:inline-block;padding:20px 36px;background:var(--grey-6);border-radius:14px;border:1px solid var(--grey-5);">
+        <div style="font-size:14px;color:var(--grey-2);margin-bottom:6px;">Managing 50+ buildings?</div>
+        <div style="font-size:16px;font-weight:700;color:var(--grey-1);margin-bottom:12px;">Enterprise pricing available with volume discounts.</div>
+        <a href="contact.html" class="btn btn-primary btn-sm">Contact us for enterprise pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Frequently asked questions.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item fade">
+        <div class="faq-q">What is included in the free 90-day trial?</div>
+        <div class="faq-a">Full access to all Professional tier features — including the AI Safety Case Generator, AI Compliance Checker, and Portfolio Dashboard — for up to 5 buildings. No credit card required.</div>
+      </div>
+      <div class="faq-item fade d1">
+        <div class="faq-q">Can I cancel anytime?</div>
+        <div class="faq-a">Yes. There are no long-term contracts. You can cancel your subscription at any time and your data remains accessible for 30 days after cancellation for export.</div>
+      </div>
+      <div class="faq-item fade d2">
+        <div class="faq-q">How does per-building pricing work?</div>
+        <div class="faq-a">You pay per higher-risk building under management. Add buildings as you onboard them. Remove buildings if they leave your portfolio. Your bill adjusts monthly.</div>
+      </div>
+      <div class="faq-item fade d3">
+        <div class="faq-q">Is my data secure?</div>
+        <div class="faq-a">Yes. All data is encrypted at rest and in transit. MachSafe is ICO registered as a Data Controller and fully compliant with UK GDPR. Your building safety data is never shared with third parties.</div>
+      </div>
+      <div class="faq-item fade">
+        <div class="faq-q">Do I need technical knowledge to use MachSafe?</div>
+        <div class="faq-a">No. MachSafe is designed for building safety managers, not software engineers. If you can use email, you can use MachSafe. We also provide onboarding support for all customers.</div>
+      </div>
+      <div class="faq-item fade d1">
+        <div class="faq-q">What is the AI Safety Case output?</div>
+        <div class="faq-a">The AI generates a structured draft Safety Case Report based on your building's uploaded data. All AI outputs are clearly labelled as drafts requiring human review and approval before any submission to the BSR.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — MachSafe</title>
+<meta name="description" content="MachSafe platform overview — compliance dashboard, gap detection, AI Safety Case drafting, BAC tracking, and portfolio management.">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { padding: 80px 0 60px; border-bottom: 1px solid var(--grey-5); }
+.page-hero h1 { font-size: clamp(32px,4vw,52px); font-weight: 800; letter-spacing:-1.5px; margin-bottom:14px; }
+.page-hero p  { font-size:18px; color:var(--grey-2); max-width:560px; line-height:1.7; }
+
+.feature-section { padding: 80px 0; border-bottom: 1px solid var(--grey-5); }
+.feature-section:last-of-type { border-bottom: none; }
+
+.feat-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.feat-layout.reverse { direction: rtl; }
+.feat-layout.reverse > * { direction: ltr; }
+
+.feat-text .eyebrow { margin-bottom: 10px; }
+.feat-text h2 { font-size: clamp(26px,3vw,38px); font-weight: 800; letter-spacing:-1px; margin-bottom:14px; line-height:1.15; }
+.feat-text p  { font-size: 16px; color:var(--grey-2); line-height:1.75; margin-bottom:20px; }
+
+.feat-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.feat-bullets li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--grey-2); }
+.feat-bullets li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+.feat-visual {
+  background: var(--grey-6); border: 1px solid var(--grey-5);
+  border-radius: 16px; padding: 28px; min-height: 280px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+
+.mock-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background: white; border: 1px solid var(--grey-5);
+  border-radius: 10px; font-size: 14px; transition: all 0.15s;
+}
+.mock-row:hover { border-color: var(--blue); box-shadow: 0 2px 8px rgba(37,99,235,0.08); }
+.mock-row-left { display: flex; align-items: center; gap: 10px; }
+.mock-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.mock-label { color: var(--grey-2); font-weight: 500; }
+.mock-val { font-size: 13px; font-weight: 700; font-family: monospace; }
+.g { color: var(--green); }
+.a { color: #F59E0B; }
+.r { color: #EF4444; }
+.b { color: var(--blue); }
+
+.score-big-display {
+  background: white; border: 1px solid var(--grey-5);
+  border-radius: 14px; padding: 32px; text-align: center;
+  margin-bottom: 4px;
+}
+
+.score-number { font-size: 72px; font-weight: 800; color: var(--blue); letter-spacing: -4px; line-height: 1; }
+.score-sub { font-size: 13px; color: var(--grey-3); margin-top: 6px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; }
+
+.ai-box {
+  background: var(--grey-1); border-radius: 14px; padding: 24px;
+  color: white; font-size: 14px; line-height: 1.7;
+}
+.ai-box-header { font-size: 11px; color: rgba(255,255,255,0.4); font-family: monospace; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.ai-text { color: rgba(255,255,255,0.75); margin-bottom: 12px; }
+.ai-cursor { display: inline-block; width: 8px; height: 14px; background: var(--blue); border-radius: 2px; animation: blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.gap-list { display: flex; flex-direction: column; gap: 8px; }
+.gap-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; border-radius: 9px;
+  border: 1px solid; font-size: 13px;
+}
+.gap-high { background:#FFF5F5; border-color:#FECACA; color:#991B1B; }
+.gap-med  { background:#FFFBEB; border-color:#FDE68A; color:#92400E; }
+.gap-low  { background:#F0FDF4; border-color:#BBF7D0; color:#166534; }
+.gap-label { font-weight: 600; }
+.gap-badge { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+.gap-high .gap-badge { background:#FEE2E2; color:#DC2626; }
+.gap-med  .gap-badge { background:#FEF3C7; color:#D97706; }
+.gap-low  .gap-badge { background:#DCFCE7; color:#16A34A; }
+
+@media(max-width:768px) {
+  .feat-layout { grid-template-columns: 1fr; gap: 40px; }
+  .feat-layout.reverse { direction: ltr; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('Product'));</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Product</div>
+    <h1>Everything you need to<br>stay compliant.</h1>
+    <p>MachSafe is built obligation-by-obligation from the Building Safety Act 2022. Every feature maps to a specific legal requirement — nothing generic, nothing adapted.</p>
+  </div>
+</section>
+
+<!-- FEATURE 1: DASHBOARD -->
+<section class="feature-section">
+  <div class="wrap">
+    <div class="feat-layout fade">
+      <div class="feat-text">
+        <div class="eyebrow">Compliance Dashboard</div>
+        <h2>Know your compliance<br>status at a glance.</h2>
+        <p>The MachSafe dashboard gives you a real-time compliance score for every building you manage — across all 14 mandatory BSA 2022 document categories.</p>
+        <ul class="feat-bullets">
+          <li>Live compliance score from 0 to 100%</li>
+          <li>RED, AMBER, GREEN status for every category</li>
+          <li>Expiring documents highlighted automatically</li>
+          <li>Portfolio view across all your buildings</li>
+          <li>Recent activity feed and team management</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary btn-sm">See a live demo</a>
+      </div>
+      <div class="feat-text">
+        <div class="feat-visual">
+          <div class="score-big-display">
+            <div class="score-number">94%</div>
+            <div class="score-sub">Compliance Score — Parkview Tower</div>
+          </div>
+          <div class="mock-row">
+            <div class="mock-row-left"><div class="mock-dot" style="background:var(--green)"></div><span class="mock-label">Golden Thread</span></div>
+            <span class="mock-val g">COMPLIANT ✓</span>
+          </div>
+          <div class="mock-row">
+            <div class="mock-row-left"><div class="mock-dot" style="background:var(--blue)"></div><span class="mock-label">BAC Readiness</span></div>
+            <span class="mock-val b">87 / 100</span>
+          </div>
+          <div class="mock-row">
+            <div class="mock-row-left"><div class="mock-dot" style="background:#F59E0B"></div><span class="mock-label">Safety Case</span></div>
+            <span class="mock-val a">IN REVIEW</span>
+          </div>
+          <div class="mock-row">
+            <div class="mock-row-left"><div class="mock-dot" style="background:#EF4444"></div><span class="mock-label">Fire Risk Assessment</span></div>
+            <span class="mock-val r">EXPIRING 14 DAYS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 2: GAP DETECTION -->
+<section class="feature-section" style="background:var(--grey-6);">
+  <div class="wrap">
+    <div class="feat-layout reverse fade">
+      <div class="feat-text">
+        <div class="eyebrow">Gap Detection</div>
+        <h2>Find every missing<br>document instantly.</h2>
+        <p>The MachSafe gap engine analyses your document library against all 14 mandatory BSA 2022 categories. Every missing or inadequate document is identified and ranked by legal risk.</p>
+        <ul class="feat-bullets">
+          <li>Risk-weighted gap scoring by building parameters</li>
+          <li>Prioritised action list — most critical gaps first</li>
+          <li>Explains which regulation each gap violates</li>
+          <li>Tracks gap resolution with progress indicators</li>
+          <li>Alerts when new gaps emerge as regulations update</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary btn-sm">See gap detection in action</a>
+      </div>
+      <div class="feat-text">
+        <div class="feat-visual">
+          <div style="font-size:13px;font-weight:700;color:var(--grey-2);margin-bottom:12px;">3 gaps identified — ranked by priority</div>
+          <div class="gap-list">
+            <div class="gap-item gap-high">
+              <span class="gap-label">Cladding Risk Assessment — missing</span>
+              <span class="gap-badge">HIGH RISK</span>
+            </div>
+            <div class="gap-item gap-high">
+              <span class="gap-label">Resident Engagement Strategy — missing</span>
+              <span class="gap-badge">HIGH RISK</span>
+            </div>
+            <div class="gap-item gap-med">
+              <span class="gap-label">Structural Inspection — expiring soon</span>
+              <span class="gap-badge">MEDIUM</span>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:14px 16px;background:white;border-radius:10px;border:1px solid var(--grey-5);font-size:13px;color:var(--grey-2);">
+            <strong style="color:var(--grey-1);">Why this matters:</strong> A missing cladding assessment on a higher-risk building is a Regulation 10 violation under the HRB Regulations 2024, carrying unlimited financial penalty risk.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 3: AI SAFETY CASE -->
+<section class="feature-section">
+  <div class="wrap">
+    <div class="feat-layout fade">
+      <div class="feat-text">
+        <div class="eyebrow">AI Safety Case Generator</div>
+        <h2>Generate Safety Case<br>Reports in hours.</h2>
+        <p>Our AI is fine-tuned on the Building Safety Act 2022, BSR guidance, PAS 9980:2022, and BS 9991. It generates a structured Safety Case draft grounded in your building's own uploaded data — not generic templates.</p>
+        <ul class="feat-bullets">
+          <li>Trained on BSA 2022, BSR guidance, PAS 9980:2022, BS 9991</li>
+          <li>Every output grounded in your building's specific data</li>
+          <li>Mandatory human review before any submission</li>
+          <li>60–80% time saving vs fire safety consultants</li>
+          <li>Full audit trail of every AI output and human review</li>
+        </ul>
+        <p style="font-size:13px;color:var(--grey-3);font-style:italic;">AI outputs are clearly labelled as drafts requiring human review and approval before use in any submission.</p>
+        <a href="contact.html" class="btn btn-primary btn-sm">See the AI in action</a>
+      </div>
+      <div class="feat-text">
+        <div class="feat-visual">
+          <div class="ai-box">
+            <div class="ai-box-header">AI Safety Case Generator — Draft Output</div>
+            <div class="ai-text">
+              <strong style="color:white;">Section 3: Building Risk Assessment</strong><br><br>
+              Parkview Tower is a 24-storey higher-risk residential building constructed in 1987, comprising 96 residential units. The building presents the following material fire safety risks as assessed under PAS 9980:2022 and the BSR Safety Case guidance...<div class="ai-cursor"></div>
+            </div>
+            <div style="display:flex;gap:8px;margin-top:4px;">
+              <button style="padding:7px 14px;background:var(--blue);color:white;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;">Approve section</button>
+              <button style="padding:7px 14px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.1);border-radius:7px;font-size:12px;cursor:pointer;">Edit draft</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE 4: BAC TRACKER -->
+<section class="feature-section" style="background:var(--grey-6);">
+  <div class="wrap">
+    <div class="feat-layout reverse fade">
+      <div class="feat-text">
+        <div class="eyebrow">BAC Tracker</div>
+        <h2>Never miss a 28-day<br>BSR deadline.</h2>
+        <p>When the Building Safety Regulator issues a Building Assessment Certificate direction, you have 28 days to submit a complete evidence package. MachSafe tracks every BAC request and auto-assembles your submission.</p>
+        <ul class="feat-bullets">
+          <li>28-day countdown from BSR direction date</li>
+          <li>Auto-assembles the complete submission package</li>
+          <li>Tracks all outstanding BSR queries and responses</li>
+          <li>Checklist view of all required submission components</li>
+          <li>Email alerts at 14, 7, and 3 days before deadline</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary btn-sm">See BAC tracking</a>
+      </div>
+      <div class="feat-text">
+        <div class="feat-visual">
+          <div style="background:white;border:1px solid var(--grey-5);border-radius:12px;padding:20px;margin-bottom:12px;">
+            <div style="font-size:12px;color:var(--grey-3);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">BAC Submission — Parkview Tower</div>
+            <div style="font-size:32px;font-weight:800;color:#EF4444;letter-spacing:-2px;margin-bottom:4px;">22 days</div>
+            <div style="font-size:13px;color:var(--grey-3);">Remaining to submit</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div class="mock-row"><span class="mock-label">Safety Case Report</span><span class="mock-val g">✓ Ready</span></div>
+            <div class="mock-row"><span class="mock-label">Golden Thread package</span><span class="mock-val g">✓ Ready</span></div>
+            <div class="mock-row"><span class="mock-label">Resident Engagement Strategy</span><span class="mock-val a">⚠ In progress</span></div>
+            <div class="mock-row"><span class="mock-label">Dutyholder Register</span><span class="mock-val g">✓ Ready</span></div>
+            <div class="mock-row"><span class="mock-label">Mandatory Occurrence Reports</span><span class="mock-val g">✓ Ready</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:80px 0;">
+  <div class="wrap">
+    <div style="background:var(--grey-1);border-radius:20px;padding:64px;text-align:center;">
+      <h2 style="font-size:38px;font-weight:800;letter-spacing:-1px;color:white;margin-bottom:12px;">Ready to see it live?</h2>
+      <p style="font-size:17px;color:rgba(255,255,255,0.5);margin-bottom:32px;">Book a 30-minute demo. We will walk through your specific building portfolio and show how MachSafe addresses your compliance challenges.</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Book a Demo</a>
+        <a href="pricing.html" class="btn" style="background:rgba(255,255,255,0.08);color:white;border:1px solid rgba(255,255,255,0.15);">View pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>

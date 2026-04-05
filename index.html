@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MachSafe — Building Safety Act 2022 Compliance Platform</title>
+<meta name="description" content="AI-powered building safety compliance platform. Manage documents, identify compliance gaps, and generate Safety Case Reports under the Building Safety Act.">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ── HERO ── */
+.hero {
+  padding: 96px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 800px 400px at 50% 0%, rgba(37,99,235,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--blue-l); color: var(--blue);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+  padding: 6px 14px; border-radius: 100px;
+  margin-bottom: 28px; border: 1px solid rgba(37,99,235,0.15);
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 5px var(--green);
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 800; letter-spacing: -2px; line-height: 1.08;
+  color: var(--grey-1); margin-bottom: 22px;
+  max-width: 760px; margin-left: auto; margin-right: auto;
+}
+
+.hero h1 span { color: var(--blue); }
+
+.hero-sub {
+  font-size: 19px; color: var(--grey-2); line-height: 1.7;
+  max-width: 560px; margin: 0 auto 40px;
+}
+
+.hero-btns {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; flex-wrap: wrap; margin-bottom: 56px;
+}
+
+.hero-trust {
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--grey-3); font-weight: 500;
+}
+
+.trust-icon { color: var(--green); font-size: 14px; }
+
+/* ── DASHBOARD PREVIEW ── */
+.preview {
+  margin: 64px 0 0;
+  position: relative;
+}
+
+.preview-window {
+  background: var(--grey-1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.06);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.preview-bar {
+  background: #1a1a1a;
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.preview-dot { width: 11px; height: 11px; border-radius: 50%; }
+.pd-r { background: #FF5F57; }
+.pd-y { background: #FEBC2E; }
+.pd-g { background: #28C840; }
+
+.preview-url {
+  margin-left: 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 5px 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-family: monospace;
+}
+
+.preview-body {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  min-height: 360px;
+}
+
+/* Sidebar */
+.prev-sidebar {
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.prev-sidebar-item {
+  padding: 9px 12px; border-radius: 7px;
+  font-size: 13px; color: rgba(255,255,255,0.5);
+  margin-bottom: 2px; cursor: pointer;
+  display: flex; align-items: center; gap: 9px;
+  transition: all 0.15s;
+}
+
+.prev-sidebar-item:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); }
+.prev-sidebar-item.active { background: rgba(37,99,235,0.2); color: white; }
+
+/* Main area */
+.prev-main { display: flex; flex-direction: column; gap: 16px; }
+
+.prev-score-row {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 12px;
+}
+
+.prev-score-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 16px;
+}
+
+.prev-score-label {
+  font-size: 11px; color: rgba(255,255,255,0.35);
+  font-family: monospace; letter-spacing: 0.5px; margin-bottom: 8px;
+}
+
+.prev-score-val {
+  font-size: 22px; font-weight: 700;
+  font-family: monospace;
+}
+
+.prev-table {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; overflow: hidden;
+}
+
+.prev-table-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 13px;
+}
+
+.prev-table-row:last-child { border-bottom: none; }
+
+.prev-table-name { color: rgba(255,255,255,0.6); }
+.prev-table-val { font-family: monospace; font-size: 12px; font-weight: 500; }
+
+.c-green { color: #34D399; }
+.c-amber { color: #FCD34D; }
+.c-red   { color: #F87171; }
+.c-blue  { color: #60A5FA; }
+
+/* ── STATS ── */
+.stats { padding: 64px 0; background: var(--grey-6); border-radius: 20px; margin: 80px 32px; }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+}
+.stat-block {
+  text-align: center; padding: 0 24px;
+  border-right: 1px solid var(--grey-5);
+}
+.stat-block:last-child { border-right: none; }
+.stat-n { font-size: 40px; font-weight: 800; color: var(--grey-1); letter-spacing: -2px; margin-bottom: 6px; }
+.stat-n span { color: var(--blue); }
+.stat-d { font-size: 14px; color: var(--grey-3); line-height: 1.5; }
+
+/* ── PROBLEM ── */
+.problem { padding: 100px 0; }
+
+.problem-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 16px;
+}
+
+.prob-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 28px; border: 1px solid var(--grey-5);
+  border-radius: 14px; background: white;
+  transition: all 0.2s;
+}
+
+.prob-item:hover { border-color: var(--grey-4); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+.prob-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: #FEF2F2; color: #EF4444;
+  display: grid; place-items: center;
+  font-size: 20px; flex-shrink: 0;
+}
+
+.prob-title { font-size: 16px; font-weight: 700; color: var(--grey-1); margin-bottom: 6px; }
+.prob-body { font-size: 14px; color: var(--grey-2); line-height: 1.65; }
+
+/* ── SOLUTION ── */
+.solution {
+  padding: 100px 0;
+  background: var(--grey-6);
+}
+
+.sol-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+
+.sol-steps { display: flex; flex-direction: column; gap: 20px; }
+
+.sol-step {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px; border-radius: 12px;
+  background: white; border: 1px solid var(--grey-5);
+  transition: all 0.2s;
+}
+
+.sol-step:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(37,99,235,0.1); }
+
+.sol-num {
+  width: 36px; height: 36px; border-radius: 9px;
+  background: var(--blue); color: white;
+  display: grid; place-items: center;
+  font-size: 15px; font-weight: 800; flex-shrink: 0;
+}
+
+.sol-title { font-size: 15px; font-weight: 700; color: var(--grey-1); margin-bottom: 4px; }
+.sol-desc { font-size: 13.5px; color: var(--grey-2); line-height: 1.55; }
+
+.sol-visual {
+  background: white; border: 1px solid var(--grey-5);
+  border-radius: 16px; padding: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+
+.score-display {
+  text-align: center; margin-bottom: 28px;
+}
+
+.big-score {
+  font-size: 64px; font-weight: 800; color: var(--blue);
+  letter-spacing: -3px; line-height: 1;
+}
+
+.score-label { font-size: 13px; color: var(--grey-3); margin-top: 4px; font-weight: 500; letter-spacing: 0.5px; }
+
+.mini-bars { display: flex; flex-direction: column; gap: 14px; }
+
+.mini-bar-row { }
+.mini-bar-top {
+  display: flex; justify-content: space-between;
+  font-size: 13px; font-weight: 500; color: var(--grey-2); margin-bottom: 6px;
+}
+
+.mini-bar-track {
+  height: 6px; background: var(--grey-5); border-radius: 100px; overflow: hidden;
+}
+
+.mini-bar-fill { height: 100%; border-radius: 100px; }
+
+/* ── FEATURES ── */
+.features { padding: 100px 0; }
+
+.features-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+}
+
+.feat-card {
+  padding: 36px 32px; border: 1px solid var(--grey-5);
+  border-radius: 16px; background: white;
+  transition: all 0.2s; position: relative; overflow: hidden;
+}
+
+.feat-card::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--blue);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.feat-card:hover { border-color: var(--grey-4); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.feat-card:hover::after { transform: scaleX(1); }
+
+.feat-icon-wrap {
+  width: 52px; height: 52px; border-radius: 13px;
+  background: var(--blue-l); display: grid;
+  place-items: center; font-size: 24px; margin-bottom: 20px;
+}
+
+.feat-title { font-size: 19px; font-weight: 700; color: var(--grey-1); margin-bottom: 12px; }
+.feat-body { font-size: 14.5px; color: var(--grey-2); line-height: 1.7; margin-bottom: 20px; }
+
+.feat-tag {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--blue); background: var(--blue-l);
+  padding: 4px 10px; border-radius: 6px;
+}
+
+/* ── HOW IT WORKS ── */
+.how { padding: 100px 0; background: var(--grey-6); }
+
+.how-steps {
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 0;
+  margin-top: 64px; position: relative;
+}
+
+.how-steps::before {
+  content: ''; position: absolute;
+  top: 28px; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, var(--blue), rgba(37,99,235,0.2));
+}
+
+.how-step { text-align: center; padding: 0 12px; }
+
+.how-num {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: white; border: 2px solid var(--blue);
+  color: var(--blue); font-size: 20px; font-weight: 800;
+  display: grid; place-items: center;
+  margin: 0 auto 20px; position: relative; z-index: 1;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.15);
+}
+
+.how-step-title { font-size: 14px; font-weight: 700; color: var(--grey-1); margin-bottom: 8px; }
+.how-step-body { font-size: 13px; color: var(--grey-3); line-height: 1.55; }
+
+/* ── CTA ── */
+.cta { padding: 100px 0; }
+
+.cta-box {
+  background: var(--grey-1); border-radius: 24px;
+  padding: 80px; text-align: center;
+  position: relative; overflow: hidden;
+}
+
+.cta-box::before {
+  content: ''; position: absolute;
+  top: -150px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.3) 0%, transparent 70%);
+}
+
+.cta-box h2 {
+  font-size: clamp(28px, 4vw, 44px); font-weight: 800;
+  letter-spacing: -1.5px; color: white;
+  margin-bottom: 14px; position: relative;
+}
+
+.cta-box p {
+  font-size: 17px; color: rgba(255,255,255,0.55);
+  margin-bottom: 36px; position: relative;
+}
+
+.cta-btns {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; flex-wrap: wrap; position: relative;
+}
+
+.cta-note { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.3); }
+
+@media(max-width: 768px) {
+  .hero h1 { letter-spacing: -1px; }
+  .preview-body { grid-template-columns: 1fr; }
+  .prev-sidebar { display: none; }
+  .stats { margin: 80px 20px; }
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .stat-block { border-right: none; border-bottom: 1px solid var(--grey-5); padding: 24px; }
+  .stat-block:last-child, .stat-block:nth-child(2) { border-bottom: none; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .sol-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: repeat(2,1fr); gap: 24px; }
+  .how-steps::before { display: none; }
+  .cta-box { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<script src="shared.js"></script>
+<script>document.write(getNav('Home'));</script>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Building Safety Act 2022
+      </div>
+
+      <h1>AI-powered building safety<br><span>compliance platform</span></h1>
+
+      <p class="hero-sub">
+        Manage documents, identify compliance gaps, and generate Safety Case Reports under the Building Safety Act 2022 — all in one place.
+      </p>
+
+      <div class="hero-btns">
+        <a href="contact.html" class="btn btn-primary">
+          Get Early Access
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="contact.html" class="btn btn-secondary">Book a Demo</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item"><span class="trust-icon">✓</span> Free 90-day pilot</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> No credit card required</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> BSA 2022 compliant</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> UK-built platform</div>
+      </div>
+    </div>
+
+    <!-- Platform preview -->
+    <div class="preview fade">
+      <div class="preview-window">
+        <div class="preview-bar">
+          <div class="preview-dot pd-r"></div>
+          <div class="preview-dot pd-y"></div>
+          <div class="preview-dot pd-g"></div>
+          <div class="preview-url">app.machsafe.co.uk — Compliance Dashboard</div>
+        </div>
+        <div class="preview-body">
+          <div class="prev-sidebar">
+            <div class="prev-sidebar-item active">📊 Dashboard</div>
+            <div class="prev-sidebar-item">📁 Documents</div>
+            <div class="prev-sidebar-item">🎯 Gap Checker</div>
+            <div class="prev-sidebar-item">🤖 Safety Case AI</div>
+            <div class="prev-sidebar-item">⏱ BAC Tracker</div>
+            <div class="prev-sidebar-item">👥 Team</div>
+            <div class="prev-sidebar-item">🏢 Portfolio</div>
+          </div>
+          <div class="prev-main">
+            <div class="prev-score-row">
+              <div class="prev-score-card">
+                <div class="prev-score-label">COMPLIANCE</div>
+                <div class="prev-score-val c-green">94%</div>
+              </div>
+              <div class="prev-score-card">
+                <div class="prev-score-label">BAC READY</div>
+                <div class="prev-score-val c-blue">87/100</div>
+              </div>
+              <div class="prev-score-card">
+                <div class="prev-score-label">GAPS FOUND</div>
+                <div class="prev-score-val c-amber">3</div>
+              </div>
+              <div class="prev-score-card">
+                <div class="prev-score-label">EXPIRING SOON</div>
+                <div class="prev-score-val c-red">2 docs</div>
+              </div>
+            </div>
+            <div class="prev-table">
+              <div class="prev-table-row">
+                <span class="prev-table-name">Golden Thread</span>
+                <span class="prev-table-val c-green">COMPLIANT ✓</span>
+              </div>
+              <div class="prev-table-row">
+                <span class="prev-table-name">Safety Case Report</span>
+                <span class="prev-table-val c-amber">AI DRAFT READY</span>
+              </div>
+              <div class="prev-table-row">
+                <span class="prev-table-name">BAC Submission</span>
+                <span class="prev-table-val c-blue">22 days remaining</span>
+              </div>
+              <div class="prev-table-row">
+                <span class="prev-table-name">Fire Risk Assessment</span>
+                <span class="prev-table-val c-red">EXPIRING IN 14 DAYS</span>
+              </div>
+              <div class="prev-table-row">
+                <span class="prev-table-name">Dutyholder Register</span>
+                <span class="prev-table-val c-green">UP TO DATE ✓</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats fade">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-n">12,<span>500</span></div>
+      <div class="stat-d">Buildings legally required<br>to comply in England</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-n">£<span>8K</span></div>
+      <div class="stat-d">Maximum cost of a single<br>Safety Case from consultants</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-n">27<span>%</span></div>
+      <div class="stat-d">BAC application failure<br>rate at BSR Gateway 2</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-n">28</div>
+      <div class="stat-d">Days to respond to a<br>BSR BAC direction</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="wrap">
+    <div class="eyebrow fade">The Problem</div>
+    <h2 class="section-title fade">Building safety compliance<br>is complex.</h2>
+    <p class="section-sub fade">The Building Safety Act 2022 created legally mandated obligations for thousands of organisations. Most are struggling with the same four problems.</p>
+
+    <div class="problem-grid">
+      <div class="prob-item fade">
+        <div class="prob-icon">📂</div>
+        <div>
+          <div class="prob-title">Documents are scattered</div>
+          <div class="prob-body">Safety documents are stored across email, SharePoint, and paper files — with no version control, no structure, and no audit trail.</div>
+        </div>
+      </div>
+      <div class="prob-item fade d1">
+        <div class="prob-icon">🔍</div>
+        <div>
+          <div class="prob-title">Hard to track missing items</div>
+          <div class="prob-body">There is no easy way to know which documents are missing, which are expiring, or which gaps create the most serious legal risk.</div>
+        </div>
+      </div>
+      <div class="prob-item fade d2">
+        <div class="prob-icon">⚠️</div>
+        <div>
+          <div class="prob-title">Risk of non-compliance</div>
+          <div class="prob-body">Non-compliance carries personal criminal liability and unlimited financial penalties for Accountable Persons and directors.</div>
+        </div>
+      </div>
+      <div class="prob-item fade d3">
+        <div class="prob-icon">⏰</div>
+        <div>
+          <div class="prob-title">Time-consuming reports</div>
+          <div class="prob-body">Safety Case Reports require qualified engineers charging up to £8,000 per building. Most organisations cannot afford this at scale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="wrap">
+    <div class="sol-grid">
+      <div>
+        <div class="eyebrow fade">The Solution</div>
+        <h2 class="section-title fade">One platform to manage<br>compliance.</h2>
+        <p class="section-sub fade" style="margin-bottom:36px;">MachSafe replaces fragmented spreadsheets, email folders, and expensive consultants with a single, purpose-built compliance platform.</p>
+
+        <div class="sol-steps">
+          <div class="sol-step fade">
+            <div class="sol-num">1</div>
+            <div>
+              <div class="sol-title">Upload your documents</div>
+              <div class="sol-desc">Drag and drop existing safety documents. MachSafe automatically organises them into the 14 mandatory BSA 2022 categories.</div>
+            </div>
+          </div>
+          <div class="sol-step fade d1">
+            <div class="sol-num">2</div>
+            <div>
+              <div class="sol-title">Track compliance status</div>
+              <div class="sol-desc">See your compliance score in real time. Know exactly where you stand across every regulatory requirement.</div>
+            </div>
+          </div>
+          <div class="sol-step fade d2">
+            <div class="sol-num">3</div>
+            <div>
+              <div class="sol-title">Identify gaps instantly</div>
+              <div class="sol-desc">The risk-weighted gap engine finds every missing document and ranks them by legal severity — so you fix the most critical issues first.</div>
+            </div>
+          </div>
+          <div class="sol-step fade d3">
+            <div class="sol-num">4</div>
+            <div>
+              <div class="sol-title">Generate Safety Case Reports</div>
+              <div class="sol-desc">Our AI drafts a compliant Safety Case Report from your building's own data. Review and approve in hours, not days.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sol-visual fade">
+        <div class="score-display">
+          <div class="big-score">94%</div>
+          <div class="score-label">COMPLIANCE SCORE</div>
+        </div>
+        <div class="mini-bars">
+          <div class="mini-bar-row">
+            <div class="mini-bar-top">
+              <span>Golden Thread</span><span style="color:var(--green);font-weight:700;">Complete</span>
+            </div>
+            <div class="mini-bar-track">
+              <div class="mini-bar-fill" style="width:100%;background:var(--green);"></div>
+            </div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-top">
+              <span>Safety Case</span><span style="color:var(--blue);font-weight:700;">87%</span>
+            </div>
+            <div class="mini-bar-track">
+              <div class="mini-bar-fill" style="width:87%;background:var(--blue);"></div>
+            </div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-top">
+              <span>BAC Readiness</span><span style="color:#F59E0B;font-weight:700;">71%</span>
+            </div>
+            <div class="mini-bar-track">
+              <div class="mini-bar-fill" style="width:71%;background:#F59E0B;"></div>
+            </div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-top">
+              <span>Fire Safety Docs</span><span style="color:var(--green);font-weight:700;">100%</span>
+            </div>
+            <div class="mini-bar-track">
+              <div class="mini-bar-fill" style="width:100%;background:var(--green);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="wrap">
+    <div class="eyebrow fade">Core Features</div>
+    <h2 class="section-title fade">AI-powered compliance tools.</h2>
+    <p class="section-sub fade">Three AI features that replace what previously required expensive specialists.</p>
+
+    <div class="features-grid">
+      <div class="feat-card fade">
+        <div class="feat-icon-wrap">🤖</div>
+        <h3 class="feat-title">AI Safety Case Generator</h3>
+        <p class="feat-body">Generates a compliant Safety Case Report draft using your building's uploaded data. Fine-tuned on BSA 2022, BSR guidance, PAS 9980:2022, and BS 9991. Mandatory human review before use.</p>
+        <span class="feat-tag">AI-Powered</span>
+      </div>
+      <div class="feat-card fade d1">
+        <div class="feat-icon-wrap">✅</div>
+        <h3 class="feat-title">AI Compliance Checker</h3>
+        <p class="feat-body">Analyses uploaded documents for regulatory adequacy — not just whether they exist, but whether they meet the specific BSR requirements. Flags gaps with explanations and recommended actions.</p>
+        <span class="feat-tag">AI-Powered</span>
+      </div>
+      <div class="feat-card fade d2">
+        <div class="feat-icon-wrap">🎯</div>
+        <h3 class="feat-title">AI Risk Detection</h3>
+        <p class="feat-body">Identifies emerging safety risks across your building data and maintenance records. Prioritises by severity using building-specific parameters including height, cladding type, and occupancy.</p>
+        <span class="feat-tag">AI-Powered</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px;">
+      <a href="product.html" class="btn btn-secondary">See all platform features →</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="wrap">
+    <div style="text-align:center;">
+      <div class="eyebrow fade">How It Works</div>
+      <h2 class="section-title fade">Up and running in minutes.</h2>
+      <p class="section-sub fade" style="margin:0 auto 0;">No IT team needed. No long setup. Just add your building and start.</p>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step fade">
+        <div class="how-num">1</div>
+        <div class="how-step-title">Add building</div>
+        <div class="how-step-body">Enter your building details and MachSafe instantly maps your compliance obligations.</div>
+      </div>
+      <div class="how-step fade d1">
+        <div class="how-num">2</div>
+        <div class="how-step-title">Upload documents</div>
+        <div class="how-step-body">Drag and drop existing safety documents. They are automatically organised into 14 categories.</div>
+      </div>
+      <div class="how-step fade d2">
+        <div class="how-num">3</div>
+        <div class="how-step-title">System checks compliance</div>
+        <div class="how-step-body">The AI analyses every document and identifies gaps, ranked by legal risk priority.</div>
+      </div>
+      <div class="how-step fade d3">
+        <div class="how-num">4</div>
+        <div class="how-step-title">Fix gaps</div>
+        <div class="how-step-body">Follow the prioritised action list. Upload missing documents. Track progress in real time.</div>
+      </div>
+      <div class="how-step fade d4">
+        <div class="how-num">5</div>
+        <div class="how-step-title">Generate report</div>
+        <div class="how-step-body">The AI drafts your Safety Case Report. Review, approve, and submit — in hours not weeks.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="how-it-works.html" class="btn btn-secondary">Learn more about how it works →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box fade">
+      <h2>Start managing building safety<br>compliance today.</h2>
+      <p>Join housing associations and Accountable Persons already using MachSafe to stay compliant.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn btn-primary">Request Demo</a>
+        <a href="contact.html" class="btn" style="background:rgba(255,255,255,0.1);color:white;border:1px solid rgba(255,255,255,0.2);">Join Early Access</a>
+      </div>
+      <div class="cta-note">Free 90-day pilot · No credit card required · Cancel anytime</div>
+    </div>
+  </div>
+</section>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>

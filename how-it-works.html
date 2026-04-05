@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works — MachSafe</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero { padding: 80px 0 60px; border-bottom: 1px solid var(--grey-5); }
+.page-hero h1 { font-size: clamp(32px,4vw,52px); font-weight:800; letter-spacing:-1.5px; margin-bottom:14px; }
+.page-hero p  { font-size:18px; color:var(--grey-2); max-width:560px; line-height:1.7; }
+
+.steps-section { padding: 80px 0; }
+
+.step-block {
+  display: grid; grid-template-columns: 80px 1fr 1fr;
+  gap: 48px; align-items: start;
+  padding: 56px 0; border-bottom: 1px solid var(--grey-5);
+  position: relative;
+}
+
+.step-block:last-of-type { border-bottom: none; }
+
+.step-num-col {
+  display: flex; flex-direction: column; align-items: center; padding-top: 4px;
+}
+
+.step-circle {
+  width: 64px; height: 64px; border-radius: 16px;
+  background: var(--blue); color: white;
+  font-size: 24px; font-weight: 800;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 24px rgba(37,99,235,0.25);
+  margin-bottom: 16px; flex-shrink: 0;
+}
+
+.step-line {
+  width: 2px; flex: 1; background: linear-gradient(to bottom, var(--blue), rgba(37,99,235,0.1));
+  min-height: 100px;
+}
+
+.step-block:last-of-type .step-line { display: none; }
+
+.step-text h2 { font-size: 26px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 12px; }
+.step-text p  { font-size: 16px; color: var(--grey-2); line-height: 1.75; margin-bottom: 20px; }
+.step-text ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.step-text ul li { display: flex; align-items: flex-start; gap: 8px; font-size: 14.5px; color: var(--grey-2); }
+.step-text ul li::before { content: '→'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+.step-visual {
+  background: var(--grey-6); border: 1px solid var(--grey-5);
+  border-radius: 14px; padding: 24px;
+}
+
+.mock-doc {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; background: white; border: 1px solid var(--grey-5);
+  border-radius: 9px; margin-bottom: 8px; font-size: 13.5px;
+  transition: all 0.15s;
+}
+.mock-doc:hover { border-color: var(--blue); }
+.mock-doc:last-child { margin-bottom: 0; }
+.doc-icon { font-size: 20px; }
+.doc-info { flex: 1; }
+.doc-name { font-weight: 600; color: var(--grey-1); margin-bottom: 2px; }
+.doc-cat  { font-size: 11px; color: var(--grey-3); font-family: monospace; }
+.doc-status { font-size: 12px; font-weight: 700; }
+
+.ai-typing {
+  background: var(--grey-1); border-radius: 12px; padding: 20px; color: white;
+}
+.ai-header { font-size: 11px; color: rgba(255,255,255,0.35); font-family: monospace; letter-spacing: 1px; margin-bottom: 12px; }
+.ai-content { font-size: 13.5px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+@media(max-width:768px) {
+  .step-block { grid-template-columns: 1fr; }
+  .step-num-col { flex-direction: row; align-items: center; gap: 16px; }
+  .step-line { display: none; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('How It Works'));</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">How It Works</div>
+    <h1>Simple steps to<br>full compliance.</h1>
+    <p>MachSafe is designed for building safety managers, not software engineers. Five steps from setup to your first Safety Case Report.</p>
+  </div>
+</section>
+
+<section class="steps-section">
+  <div class="wrap">
+
+    <!-- STEP 1 -->
+    <div class="step-block fade">
+      <div class="step-num-col">
+        <div class="step-circle">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-text">
+        <h2>Add your building</h2>
+        <p>Enter your building details — address, height, number of floors, number of units, and construction type. MachSafe immediately maps your legal compliance obligations under the Building Safety Act 2022.</p>
+        <ul>
+          <li>Takes less than 5 minutes to set up</li>
+          <li>No technical knowledge required</li>
+          <li>Supports multiple buildings simultaneously</li>
+          <li>Automatically identifies your specific obligations based on building parameters</li>
+        </ul>
+      </div>
+      <div class="step-visual">
+        <div style="background:white;border:1px solid var(--grey-5);border-radius:10px;padding:20px;font-size:14px;">
+          <div style="font-weight:700;color:var(--grey-1);margin-bottom:16px;">New Building Setup</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div><div style="font-size:11px;color:var(--grey-3);margin-bottom:4px;font-weight:600;">BUILDING NAME</div><div style="padding:8px 12px;border:1px solid var(--grey-5);border-radius:7px;color:var(--grey-1);">Parkview Tower</div></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              <div><div style="font-size:11px;color:var(--grey-3);margin-bottom:4px;font-weight:600;">HEIGHT (M)</div><div style="padding:8px 12px;border:1px solid var(--grey-5);border-radius:7px;">72m</div></div>
+              <div><div style="font-size:11px;color:var(--grey-3);margin-bottom:4px;font-weight:600;">FLOORS</div><div style="padding:8px 12px;border:1px solid var(--grey-5);border-radius:7px;">24</div></div>
+            </div>
+            <div style="padding:10px 14px;background:var(--blue-l);border-radius:8px;font-size:13px;color:var(--blue);font-weight:600;">✓ Higher-risk building confirmed — 23 obligations identified</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-block fade">
+      <div class="step-num-col">
+        <div class="step-circle">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-text">
+        <h2>Upload your documents</h2>
+        <p>Drag and drop your existing safety documents into MachSafe. The platform automatically sorts them into the 14 mandatory BSA 2022 document categories — no manual filing required.</p>
+        <ul>
+          <li>Supports PDF, Word, Excel, and image formats</li>
+          <li>Automatically categorised into 14 BSA 2022 categories</li>
+          <li>Version control — older versions kept, never deleted</li>
+          <li>Expiry dates tracked automatically with alerts</li>
+        </ul>
+      </div>
+      <div class="step-visual">
+        <div class="mock-doc">
+          <span class="doc-icon">📄</span>
+          <div class="doc-info">
+            <div class="doc-name">Fire Risk Assessment 2025.pdf</div>
+            <div class="doc-cat">CATEGORY: FIRE SAFETY</div>
+          </div>
+          <span class="doc-status" style="color:var(--green);">✓ Uploaded</span>
+        </div>
+        <div class="mock-doc">
+          <span class="doc-icon">📄</span>
+          <div class="doc-info">
+            <div class="doc-name">Structural Survey Report.pdf</div>
+            <div class="doc-cat">CATEGORY: STRUCTURAL</div>
+          </div>
+          <span class="doc-status" style="color:var(--green);">✓ Uploaded</span>
+        </div>
+        <div class="mock-doc">
+          <span class="doc-icon">📄</span>
+          <div class="doc-info">
+            <div class="doc-name">Cladding Inspection Report.pdf</div>
+            <div class="doc-cat">CATEGORY: EXTERNAL WALLS</div>
+          </div>
+          <span class="doc-status" style="color:var(--green);">✓ Uploaded</span>
+        </div>
+        <div style="margin-top:12px;padding:12px 16px;border:2px dashed var(--grey-4);border-radius:9px;text-align:center;font-size:13px;color:var(--grey-3);">
+          Drop more documents here or click to browse
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-block fade">
+      <div class="step-num-col">
+        <div class="step-circle">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-text">
+        <h2>System analyses compliance</h2>
+        <p>MachSafe's compliance engine analyses every document against the Building Safety Act 2022 requirements. It identifies missing documents, inadequate content, and expiring documents — all ranked by legal risk severity.</p>
+        <ul>
+          <li>Checks all 14 mandatory document categories</li>
+          <li>Risk-weighted scoring using building-specific parameters</li>
+          <li>Explains which regulation each gap violates</li>
+          <li>Updates in real time as you upload new documents</li>
+        </ul>
+      </div>
+      <div class="step-visual">
+        <div style="background:white;border:1px solid var(--grey-5);border-radius:10px;padding:20px;">
+          <div style="font-size:13px;font-weight:700;color:var(--grey-1);margin-bottom:14px;">Compliance Analysis Results</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="padding:10px 14px;background:#FFF5F5;border:1px solid #FECACA;border-radius:8px;font-size:13px;">
+              <strong style="color:#DC2626;">HIGH:</strong> <span style="color:#991B1B;">Resident Engagement Strategy missing — Reg 12 violation</span>
+            </div>
+            <div style="padding:10px 14px;background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;font-size:13px;">
+              <strong style="color:#D97706;">MEDIUM:</strong> <span style="color:#92400E;">Fire Risk Assessment expires in 14 days</span>
+            </div>
+            <div style="padding:10px 14px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;font-size:13px;">
+              <strong style="color:#16A34A;">LOW:</strong> <span style="color:#166534;">Maintenance log format update recommended</span>
+            </div>
+          </div>
+          <div style="margin-top:14px;padding:12px 14px;background:var(--grey-6);border-radius:8px;font-size:13px;color:var(--grey-2);">
+            Overall score: <strong style="color:var(--blue);">71%</strong> — 3 gaps require attention
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-block fade">
+      <div class="step-num-col">
+        <div class="step-circle">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-text">
+        <h2>Fix gaps</h2>
+        <p>Follow the prioritised action list to resolve compliance gaps. Upload missing documents, update expired ones, and track your progress in real time. Your compliance score updates instantly as you work through each item.</p>
+        <ul>
+          <li>Prioritised action list — fix highest risk first</li>
+          <li>Upload directly from the action list</li>
+          <li>Assign tasks to team members</li>
+          <li>Progress tracked with completion percentages</li>
+        </ul>
+      </div>
+      <div class="step-visual">
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:white;border:1px solid #BBF7D0;border-radius:9px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--green);font-size:16px;">✓</span>
+              <span style="font-size:13px;text-decoration:line-through;color:var(--grey-3);">Upload cladding inspection report</span>
+            </div>
+            <span style="font-size:11px;color:var(--green);font-weight:700;">DONE</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:white;border:2px solid var(--blue);border-radius:9px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--blue);font-size:16px;">→</span>
+              <span style="font-size:13px;color:var(--grey-1);font-weight:600;">Upload resident engagement strategy</span>
+            </div>
+            <button style="font-size:12px;padding:6px 12px;background:var(--blue);color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;">Upload</button>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:white;border:1px solid var(--grey-5);border-radius:9px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="color:var(--grey-4);font-size:16px;">○</span>
+              <span style="font-size:13px;color:var(--grey-3);">Renew fire risk assessment</span>
+            </div>
+            <span style="font-size:11px;color:var(--grey-3);">PENDING</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-block fade">
+      <div class="step-num-col">
+        <div class="step-circle" style="background:var(--green);">5</div>
+      </div>
+      <div class="step-text">
+        <h2>Generate your Safety Case Report</h2>
+        <p>Once your documents are in order, MachSafe's AI generates a compliant Safety Case Report draft using your building's own data. Review each section, make any edits, approve, and download — in hours, not weeks.</p>
+        <ul>
+          <li>AI draft generated from your building's specific data</li>
+          <li>Structured to BSR Safety Case guidance format</li>
+          <li>Section-by-section review and approval workflow</li>
+          <li>Full audit trail of AI output and human approvals</li>
+          <li>Export as PDF for BSR submission</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary">See a demo →</a>
+      </div>
+      <div class="step-visual">
+        <div class="ai-typing">
+          <div class="ai-header">AI SAFETY CASE GENERATOR — SECTION 4 OF 8</div>
+          <div class="ai-content">
+            <strong style="color:white;">4. Control Measures and Risk Mitigation</strong><br><br>
+            The following structural and fire safety control measures are in place for Parkview Tower, as evidenced by the documentation uploaded to the MachSafe Golden Thread on 3 April 2026...
+          </div>
+          <div style="display:flex;gap:8px;margin-top:14px;">
+            <button style="padding:8px 14px;background:var(--green);color:white;border:none;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;">✓ Approve section</button>
+            <button style="padding:8px 14px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);border-radius:7px;font-size:13px;cursor:pointer;">Edit</button>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:12px 16px;background:white;border:1px solid var(--grey-5);border-radius:9px;font-size:13px;color:var(--grey-2);">
+          <strong style="color:var(--grey-1);">Progress:</strong> 4 of 8 sections approved · Estimated completion: 2 hours
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:40px 0 80px;">
+  <div class="wrap">
+    <div style="background:var(--grey-6);border-radius:20px;padding:56px;text-align:center;border:1px solid var(--grey-5);">
+      <h2 style="font-size:34px;font-weight:800;letter-spacing:-1px;margin-bottom:12px;">Ready to get started?</h2>
+      <p style="font-size:16px;color:var(--grey-2);margin-bottom:28px;">Join our free 90-day pilot. Full access to every feature.</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Get Early Access</a>
+        <a href="contact.html" class="btn btn-secondary">Book a Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>
