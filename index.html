@@ -14,13 +14,17 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(180deg, #dbeafe 0%, #e0effe 20%, #f0f6ff 45%, #f8faff 65%, #ffffff 85%);
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 800px 400px at 50% 0%, rgba(37,99,235,0.05) 0%, transparent 70%);
+  background:
+    radial-gradient(ellipse 900px 600px at 50% -5%, rgba(37,99,235,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 500px 400px at 90% 70%, rgba(99,102,241,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 300px at 10% 80%, rgba(59,130,246,0.08) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -181,7 +185,7 @@
 .c-blue  { color: #60A5FA; }
 
 /* ── STATS ── */
-.stats { padding: 64px 0; background: var(--grey-6); border-radius: 20px; margin: 80px 32px; }
+.stats { padding: 64px 0; background: linear-gradient(120deg, #dbeafe 0%, #e0e7ff 100%); border-radius: 20px; margin: 80px 32px; border: 1px solid rgba(37,99,235,0.15); }
 .stats-grid {
   display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
 }
@@ -223,7 +227,7 @@
 /* ── SOLUTION ── */
 .solution {
   padding: 100px 0;
-  background: var(--grey-6);
+  background: linear-gradient(160deg, #f0f6ff 0%, #f5f8ff 50%, #f0f4ff 100%);
 }
 
 .sol-grid {
@@ -323,7 +327,7 @@
 }
 
 /* ── HOW IT WORKS ── */
-.how { padding: 100px 0; background: var(--grey-6); }
+.how { padding: 100px 0; background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 50%, #eff6ff 100%); }
 
 .how-steps {
   display: grid; grid-template-columns: repeat(5,1fr); gap: 0;
@@ -354,16 +358,25 @@
 .cta { padding: 100px 0; }
 
 .cta-box {
-  background: var(--grey-1); border-radius: 24px;
+  background: linear-gradient(135deg, #0c1445 0%, #1e1b4b 45%, #0f1729 100%);
+  border-radius: 24px;
   padding: 80px; text-align: center;
   position: relative; overflow: hidden;
 }
 
 .cta-box::before {
   content: ''; position: absolute;
-  top: -150px; left: 50%; transform: translateX(-50%);
-  width: 600px; height: 300px;
-  background: radial-gradient(ellipse, rgba(37,99,235,0.3) 0%, transparent 70%);
+  top: -120px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.55) 0%, rgba(99,102,241,0.2) 40%, transparent 70%);
+}
+
+.cta-box::after {
+  content: ''; position: absolute;
+  bottom: -80px; right: -80px;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%);
+  pointer-events: none;
 }
 
 .cta-box h2 {
