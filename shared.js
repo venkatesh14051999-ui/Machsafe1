@@ -19,6 +19,9 @@ function getNav(active) {
           <svg width="30" height="31" viewBox="0 0 50 52" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="2" width="22" height="22" rx="5" fill="#0D1B3E"/><rect x="26" y="0" width="22" height="22" rx="5" fill="#2563EB"/><rect x="0" y="28" width="22" height="22" rx="5" fill="#1E40AF"/><rect x="26" y="30" width="22" height="22" rx="5" fill="#0D1B3E"/><rect x="20" y="20" width="8" height="8" rx="2" fill="#60A5FA"/></svg>
           MachSafe
         </a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').classList.toggle('open')">
+          <span></span><span></span><span></span>
+        </button>
         <div class="nav-links">
           ${links}
           <a href="contact.html" class="nav-btn">Get Early Access</a>
