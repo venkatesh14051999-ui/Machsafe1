@@ -404,8 +404,10 @@
 
 @media(max-width: 768px) {
   .hero h1 { letter-spacing: -1px; }
-  .preview-body { grid-template-columns: 1fr; }
+  .preview-body { grid-template-columns: 1fr; padding: 16px; }
   .prev-sidebar { display: none; }
+  .prev-score-row { grid-template-columns: repeat(2,1fr); }
+  .prev-score-val { font-size: 18px; }
   .stats { margin: 80px 20px; }
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .stat-block { border-right: none; border-bottom: 1px solid var(--grey-5); padding: 24px; }
