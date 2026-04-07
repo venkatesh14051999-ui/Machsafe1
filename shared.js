@@ -69,7 +69,7 @@ function getFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Mach Global Ltd · Registered in England & Wales · Company No. 16603107 · ICO Registered Data Controller</span>
+        <span>© 2026 Mach Global Ltd · Registered in England & Wales · Company No. 16603107 · ICO Registration No. ZC116041</span>
         <div class="footer-legal">
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
