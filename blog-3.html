@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why 27% of BAC Applications Are Failing — MachSafe</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+.article-wrap {
+  max-width: 740px; margin: 0 auto; padding: 80px 32px;
+}
+
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 600; color: var(--blue);
+  margin-bottom: 48px; transition: gap 0.15s;
+}
+.article-back:hover { gap: 10px; }
+
+.article-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--blue); background: var(--blue-l);
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 20px;
+}
+
+.article-h1 {
+  font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+  letter-spacing: -1px; line-height: 1.15; color: var(--grey-1);
+  margin-bottom: 20px;
+}
+
+.article-meta {
+  font-size: 14px; color: var(--grey-3); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--grey-5);
+}
+
+.article-body p {
+  font-size: 17px; color: var(--grey-2); line-height: 1.85;
+  margin-bottom: 24px;
+}
+
+.article-body strong { color: var(--grey-1); }
+
+.article-section-heading {
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--blue);
+  margin: 48px 0 20px;
+}
+
+.reason-block {
+  border: 1px solid var(--grey-5); border-radius: 14px;
+  padding: 28px 32px; margin-bottom: 16px; background: white;
+}
+.reason-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.8px;
+  text-transform: uppercase; color: #EF4444; margin-bottom: 10px;
+}
+.reason-title {
+  font-size: 17px; font-weight: 700; color: var(--grey-1); margin-bottom: 10px;
+}
+.reason-body {
+  font-size: 15px; color: var(--grey-2); line-height: 1.75; margin: 0;
+}
+
+.article-body ol {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 24px; padding-left: 0; list-style: none;
+  counter-reset: article-counter;
+}
+
+.article-body ol li {
+  display: flex; gap: 16px;
+  font-size: 16px; color: var(--grey-2); line-height: 1.7;
+  counter-increment: article-counter;
+}
+
+.article-body ol li::before {
+  content: counter(article-counter);
+  min-width: 28px; height: 28px; border-radius: 7px;
+  background: var(--blue); color: white;
+  font-size: 13px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+.article-cta {
+  background: linear-gradient(135deg, #0c1445 0%, #1e1b4b 45%, #0f1729 100%);
+  border-radius: 20px; padding: 64px; text-align: center;
+  margin-top: 64px; position: relative; overflow: hidden;
+}
+.article-cta::before {
+  content: ''; position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.45) 0%, transparent 70%);
+  pointer-events: none;
+}
+.article-cta h2 {
+  font-size: clamp(22px, 3vw, 32px); font-weight: 800;
+  color: white; letter-spacing: -0.5px; margin-bottom: 12px;
+  position: relative;
+}
+.article-cta p {
+  font-size: 16px; color: rgba(255,255,255,0.6);
+  margin-bottom: 28px; position: relative;
+}
+.article-cta .btn { position: relative; }
+
+@media(min-width: 1200px) {
+  .article-wrap { padding: 100px 32px; }
+}
+@media(max-width: 768px) {
+  .article-wrap { padding: 48px 20px; }
+  .article-cta { padding: 40px 24px; }
+  .reason-block { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('Blog'));</script>
+
+<div class="article-wrap">
+  <a href="blog.html" class="article-back">&larr; Back to Blog</a>
+
+  <span class="article-tag">BAC Applications</span>
+  <h1 class="article-h1">Why 27% of BAC Applications Are Failing — And How to Make Sure Yours Does Not</h1>
+  <div class="article-meta">Venkatesh Sethu &middot; April 2026 &middot; 6 min read</div>
+
+  <div class="article-body">
+    <p>In 2025, the BSR issued BAC directions to over 1,400 Principal Accountable Persons. Of those applications, 27% failed at Gateway 2 — more than 1 in 4 organisations could not demonstrate their buildings were being managed safely.</p>
+
+    <div class="article-section-heading">Why Are Applications Failing?</div>
+
+    <div class="reason-block">
+      <div class="reason-label">Reason 1</div>
+      <div class="reason-title">Missing or inadequate documentation</div>
+      <p class="reason-body">The most common failure reason. The BSR expects evidence across all 14 Golden Thread categories. Many organisations do not know what they are missing until they start assembling the submission — by then they have 28 days which is not enough time to commission missing surveys.</p>
+    </div>
+
+    <div class="reason-block">
+      <div class="reason-label">Reason 2</div>
+      <div class="reason-title">Poor quality Safety Case Reports</div>
+      <p class="reason-body">A Safety Case must demonstrate that risks have been identified, assessed, and controlled. Many reports list risks without evidencing control measures. A quality Safety Case from a fire safety engineer costs £2,000 to £8,000 per building — up to £160,000 per year for a 20-building portfolio.</p>
+    </div>
+
+    <div class="reason-block">
+      <div class="reason-label">Reason 3</div>
+      <div class="reason-title">Leaving it too late</div>
+      <p class="reason-body">The BSR issues BAC directions with a 28-day window. For organisations not maintaining their Golden Thread continuously, 28 days is not enough to locate documents, commission missing surveys, produce a Safety Case, and assemble a complete package.</p>
+    </div>
+
+    <div class="article-section-heading">How to Make Sure Your Application Does Not Fail</div>
+
+    <ol>
+      <li><strong>Start now, not when you receive a direction</strong> — treat compliance as a continuous process</li>
+      <li><strong>Conduct a gap analysis against all 14 document categories</strong> immediately</li>
+      <li><strong>Commission missing assessments early</strong> — lead times can be 4 to 8 weeks</li>
+      <li><strong>Maintain expiry tracking</strong> — set reminders at 90, 60, and 30 days before expiry</li>
+      <li><strong>Produce your Safety Case before you need it</strong> — review annually and update when the building changes</li>
+    </ol>
+
+    <p>MachSafe addresses all three failure modes — continuous Golden Thread management, risk-weighted gap identification, BAC countdown tracker, and AI-assisted Safety Case drafting.</p>
+  </div>
+
+  <div class="article-cta">
+    <h2>Do not wait for a direction.</h2>
+    <p>Start managing compliance continuously.</p>
+    <a href="contact.html" class="btn btn-primary">Apply for Free Pilot &rarr;</a>
+  </div>
+</div>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>
