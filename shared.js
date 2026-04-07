@@ -6,6 +6,7 @@ function getNav(active) {
     { href: 'how-it-works.html', label: 'How It Works' },
     { href: 'pricing.html', label: 'Pricing' },
     { href: 'about.html', label: 'About' },
+    { href: 'blog.html', label: 'Blog' },
     { href: 'contact.html', label: 'Contact' },
   ];
   const links = pages.map(p =>
@@ -56,6 +57,7 @@ function getFooter() {
           <h5>Company</h5>
           <ul>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="contact.html">Book a Demo</a></li>
           </ul>

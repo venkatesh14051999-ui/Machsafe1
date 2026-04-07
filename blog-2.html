@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Golden Thread Explained — MachSafe</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+.article-wrap {
+  max-width: 740px; margin: 0 auto; padding: 80px 32px;
+}
+
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 600; color: var(--blue);
+  margin-bottom: 48px; transition: gap 0.15s;
+}
+.article-back:hover { gap: 10px; }
+
+.article-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--blue); background: var(--blue-l);
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 20px;
+}
+
+.article-h1 {
+  font-size: clamp(28px, 4vw, 42px); font-weight: 800;
+  letter-spacing: -1px; line-height: 1.15; color: var(--grey-1);
+  margin-bottom: 20px;
+}
+
+.article-meta {
+  font-size: 14px; color: var(--grey-3); margin-bottom: 48px;
+  padding-bottom: 32px; border-bottom: 1px solid var(--grey-5);
+}
+
+.article-body p {
+  font-size: 17px; color: var(--grey-2); line-height: 1.85;
+  margin-bottom: 24px;
+}
+
+.article-body strong { color: var(--grey-1); }
+
+.article-section-heading {
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--blue);
+  margin: 48px 0 20px;
+}
+
+.article-body ol {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-bottom: 24px; padding-left: 0; list-style: none;
+  counter-reset: article-counter;
+}
+
+.article-body ol li {
+  display: flex; gap: 16px;
+  font-size: 16px; color: var(--grey-2); line-height: 1.7;
+  counter-increment: article-counter;
+}
+
+.article-body ol li::before {
+  content: counter(article-counter);
+  min-width: 28px; height: 28px; border-radius: 7px;
+  background: var(--blue); color: white;
+  font-size: 13px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+.article-cta {
+  background: linear-gradient(135deg, #0c1445 0%, #1e1b4b 45%, #0f1729 100%);
+  border-radius: 20px; padding: 64px; text-align: center;
+  margin-top: 64px; position: relative; overflow: hidden;
+}
+.article-cta::before {
+  content: ''; position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(ellipse, rgba(37,99,235,0.45) 0%, transparent 70%);
+  pointer-events: none;
+}
+.article-cta h2 {
+  font-size: clamp(22px, 3vw, 32px); font-weight: 800;
+  color: white; letter-spacing: -0.5px; margin-bottom: 12px;
+  position: relative;
+}
+.article-cta p {
+  font-size: 16px; color: rgba(255,255,255,0.6);
+  margin-bottom: 28px; position: relative;
+}
+.article-cta .btn { position: relative; }
+
+@media(min-width: 1200px) {
+  .article-wrap { padding: 100px 32px; }
+}
+@media(max-width: 768px) {
+  .article-wrap { padding: 48px 20px; }
+  .article-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('Blog'));</script>
+
+<div class="article-wrap">
+  <a href="blog.html" class="article-back">&larr; Back to Blog</a>
+
+  <span class="article-tag">Golden Thread</span>
+  <h1 class="article-h1">The Golden Thread Explained — What Every Accountable Person Needs to Know</h1>
+  <div class="article-meta">Venkatesh Sethu &middot; April 2026 &middot; 7 min read</div>
+
+  <div class="article-body">
+    <p>The Golden Thread of Information is one of the central requirements of the Building Safety Act 2022. Many Accountable Persons know they need a Golden Thread but are unclear about what it must contain, how it must be stored, and what the BSR expects.</p>
+
+    <div class="article-section-heading">What Is the Golden Thread?</div>
+
+    <p>The Golden Thread is a complete, up-to-date digital record of all information about a higher-risk building from design through to occupation. It must be maintained throughout the life of the building and made available to the BSR on request.</p>
+
+    <div class="article-section-heading">What Must It Contain?</div>
+
+    <p>The Higher-Risk Buildings Regulations 2024 specify 14 mandatory document categories:</p>
+
+    <ol>
+      <li><strong>Fire Strategy and Fire Risk Assessment</strong> — under RR(FS)O 2005</li>
+      <li><strong>Structural Information</strong> — under BSA 2022 Schedule 1</li>
+      <li><strong>External Wall System Information</strong> — cladding and insulation under PAS 9980:2022</li>
+      <li><strong>Electrical Installation Records</strong> — EICR certificates under Electrical Safety Standards Regs 2020</li>
+      <li><strong>Gas Safety Records</strong> — annual certificates under Gas Safety Regulations 1998</li>
+      <li><strong>Lift Inspection Records</strong> — under LOLER 1998</li>
+      <li><strong>Asbestos Management Plan</strong> — under CAR 2012</li>
+      <li><strong>Water Safety Risk Assessment</strong> — Legionella risk assessment under HSE L8</li>
+      <li><strong>Evacuation and Emergency Procedures</strong> — including PEEPs</li>
+      <li><strong>Resident Engagement Records</strong> — under BSA 2022 Section 91</li>
+      <li><strong>Maintenance and Inspection Logs</strong></li>
+      <li><strong>Dutyholder and Key Personnel Register</strong></li>
+      <li><strong>Safety Case Report</strong></li>
+      <li><strong>Mandatory Occurrence Reports</strong></li>
+    </ol>
+
+    <div class="article-section-heading">How Must It Be Stored?</div>
+
+    <p>The Golden Thread must be stored digitally with version control, audit trail, security, and accessibility to residents and the BSR. SharePoint folders and email inboxes do not satisfy BSR requirements — a structured digital compliance system is required.</p>
+
+    <div class="article-section-heading">How Does the BSR Assess It?</div>
+
+    <p>The BSR looks for completeness across all 14 categories, adequacy of documents, and currency — whether documents are up to date. In 2025, 27% of BAC applications failed, mostly due to missing or inadequate Golden Thread documentation.</p>
+
+    <p>MachSafe's Golden Thread Library organises all 14 categories with version control, expiry tracking, and an immutable audit trail.</p>
+  </div>
+
+  <div class="article-cta">
+    <h2>Get your Golden Thread in order.</h2>
+    <p>Start your free 90-day pilot.</p>
+    <a href="contact.html" class="btn btn-primary">Apply for Free Pilot &rarr;</a>
+  </div>
+</div>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>

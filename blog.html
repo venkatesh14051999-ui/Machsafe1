@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — MachSafe</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+.blog-section { padding: 80px 0; }
+
+.blog-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 28px;
+}
+
+.blog-card {
+  border: 1px solid var(--grey-5); border-radius: 16px;
+  padding: 36px; background: white; transition: all 0.2s;
+  display: flex; flex-direction: column;
+}
+.blog-card:hover {
+  border-color: var(--grey-4); box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.blog-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--blue); background: var(--blue-l);
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 18px;
+  align-self: flex-start;
+}
+
+.blog-title {
+  font-size: 19px; font-weight: 800; color: var(--grey-1);
+  margin-bottom: 14px; line-height: 1.3; flex: 1;
+}
+
+.blog-excerpt {
+  font-size: 14.5px; color: var(--grey-2);
+  line-height: 1.7; margin-bottom: 24px;
+}
+
+.blog-meta {
+  font-size: 13px; color: var(--grey-3);
+  border-top: 1px solid var(--grey-5); padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.blog-read-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 600; color: var(--blue);
+  transition: gap 0.15s;
+}
+.blog-read-more:hover { gap: 10px; }
+
+@media(min-width: 1200px) {
+  .blog-section { padding: 100px 0; }
+  .blog-grid { gap: 32px; }
+}
+@media(max-width: 768px) {
+  .blog-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="shared.js"></script>
+<script>document.write(getNav('Blog'));</script>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Blog</div>
+    <h1>Building safety insights.</h1>
+    <p>Practical guidance on Building Safety Act 2022 compliance for housing associations, Accountable Persons, and Building Safety Managers.</p>
+  </div>
+</section>
+
+<section class="blog-section">
+  <div class="wrap">
+    <div class="blog-grid">
+
+      <div class="blog-card fade">
+        <span class="blog-tag">Compliance Guide</span>
+        <div class="blog-title">What the Building Safety Act 2022 Means for Housing Associations in 2026</div>
+        <div class="blog-excerpt">The Building Safety Act 2022 is now in full force. Here is what every housing association needs to know about their legal obligations in 2026.</div>
+        <div class="blog-meta">Venkatesh Sethu &middot; April 2026 &middot; 8 min read</div>
+        <a href="blog-1.html" class="blog-read-more">Read article &rarr;</a>
+      </div>
+
+      <div class="blog-card fade d1">
+        <span class="blog-tag">Golden Thread</span>
+        <div class="blog-title">The Golden Thread Explained — What Every Accountable Person Needs to Know</div>
+        <div class="blog-excerpt">The Golden Thread is one of the most misunderstood requirements of the Building Safety Act 2022. This guide explains exactly what it is and how to comply.</div>
+        <div class="blog-meta">Venkatesh Sethu &middot; April 2026 &middot; 7 min read</div>
+        <a href="blog-2.html" class="blog-read-more">Read article &rarr;</a>
+      </div>
+
+      <div class="blog-card fade d2">
+        <span class="blog-tag">BAC Applications</span>
+        <div class="blog-title">Why 27% of BAC Applications Are Failing — And How to Make Sure Yours Does Not</div>
+        <div class="blog-excerpt">Over 1 in 4 Building Assessment Certificate applications failed at BSR Gateway 2 in 2025. Here is what went wrong and how to avoid the same mistakes.</div>
+        <div class="blog-meta">Venkatesh Sethu &middot; April 2026 &middot; 6 min read</div>
+        <a href="blog-3.html" class="blog-read-more">Read article &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>document.write(getFooter());</script>
+</body>
+</html>
